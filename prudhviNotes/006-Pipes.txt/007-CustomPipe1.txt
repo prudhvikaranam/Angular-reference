@@ -1,0 +1,49 @@
+We can create our own pipes based on our application requirements.
+
+To create a custom pipe, similar to creating a component, we first need to import Pipe from angular core and then decorate it to the class. 
+Apart from that we also need to import PipeTransform from angular core and let our class implement it. Then we need to create a method in the class and give it transform name.
+
+Whatever we return from transform method will be outputted when we use the pipe in the template. 
+
+The first parameter, angular sends to this method will be the data, that we want to transform. We then use that value inside the method, transform into something else and return it.
+
+As decorator metadata, we also need to provide the name of the pipe, that we wish to use in the template.
+
+Finally we need to register the pipe in the app module in declarations array.
+
+Eg: Kelvin to Centigrade Temperature converter pipe
+
+We need to create one ts file with any name, and place the following code in it.
+
+import {Pipe, PipeTransform} from '@angular/core';
+
+@Pipe({
+    name: 'KelvinToCentigrade'
+})
+export class KelvinToCentigradePipe implements PipeTransform {
+    transform(kelvin: number){
+        return kelvin - 273.15;
+    }
+}
+
+Then register the pipe inside app module file. First import it, then add it to the declarations array.
+
+then inside any component
+
+kelvinTemp = 310;
+
+in the template
+
+{{kelvinTemp | KelvinToCentigrade}}
+
+the output will be
+
+36.85000000000002
+
+To limit it to 2 digits, we can further apply number pipe
+
+{{kelvinTemp | KelvinToCentigrade | number:'2.2-2'}} 
+
+then the output will be
+
+36.85

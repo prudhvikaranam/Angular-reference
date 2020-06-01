@@ -1,0 +1,14 @@
+If we have many routes to configure, instead of listing all routes inside the module itself, we can create a constant of type Routes, which needed to be
+imported from angular router.
+
+import {RouterModule, Routes} from '@angular/router';
+
+const routes: Routes = [
+  { path:'', component: WelcomeComponent },
+  {path:'about', component: AboutComponent},
+  { path: '**', component: NotFoundComponent }
+]
+
+then inside ng module imports array, add
+
+RouterModule.forRoot(routes)

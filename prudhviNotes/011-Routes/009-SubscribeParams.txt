@@ -1,0 +1,10 @@
+The snapshot method of ActivatedRoute, only provides the initial value of the id from the url.
+
+If the url changes dynamically, then we may have to access the changed value by subscribing to ActivatedRoute parameters.
+
+to do so, inside the component, we need to do 
+
+this.route.params.subscribe((params) => {
+            let id = params.id;
+            console.log(id);
+        })

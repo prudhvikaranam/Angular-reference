@@ -1,0 +1,8 @@
+In two way bindings, a link between the property of a component and view will be established. When the value changes either inside the component or view, it will be changed at the other side automatically.
+
+Note that ngModel is a part of FormsModule, so you need to import it to use. Without FormsModule, ngModel do not work.
+
+[(ngModel)]='property' is the syntax used for two way data bindings.
+
+<input type="text" [(ngModel)]='twoWay' >
+<h4>User Entered: {{twoWay}} </h4>

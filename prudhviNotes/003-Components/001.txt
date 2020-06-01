@@ -1,0 +1,11 @@
+Components are the building blocks of an Angular application.
+
+Components are responsible for the view. Whatever we want to show to user through view, must come from a component.
+
+An angular application must contain atleast one component which is root component.
+
+Based on the requirements of our application, we can create as many components as we want, such as header component, body component, sidebar component, footer component etc.,
+
+To create a component, we have to create a class first and decorate it with @Component decorator.
+
+A component is always associated with a View Template, a class that defines and handles the content in the view and some meta data that we have to provide through decorator.

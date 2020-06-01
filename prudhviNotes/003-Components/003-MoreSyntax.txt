@@ -1,0 +1,14 @@
+If we have very little html to serve to the view, template syntax is sufficient, but if we want to show large html file, the template syntax may not be sufficient.
+
+In such cases we put all our html content in a separate file and use templateUrl syntax in the decorator and give it the value of the url of the external html file.
+
+example
+
+templateUrl: './app.component.html'.
+
+Similar to template and templateUrl, to apply css styles, we use styles and styleUrls properties. Unlike template and templateUrl, where we provide only one value, in styles and styleUrls we can
+provide multiple values as an array.
+
+styleUrls:['myStyle.css', 'myStyle2.css']
+
+that is because, we can apply several styles on a single html element.

@@ -1,0 +1,23 @@
+/* You can add global styles to this file, and also import other style files */
+body{
+  background-color: lemonchiffon;
+}
+
+
+.colorRed{
+  color: red;
+}
+.font{
+  font-size: 20px;
+}
+.background{
+  background-color: darkgray;
+}
+
+.colorWhite{
+  color: white;
+}
+
+.childColor{
+  color:#c51fc5;
+}

@@ -1,0 +1,24 @@
+<p [ngStyle] = "{'color' : colorName}">Now color is {{colorName}} and generated number is {{generatedNumber}}</p>
+
+
+
+<ul>
+  <li *ngFor = "let emp of employees;trackBy : trackBy;let i = index;let first = first; let second = second" [ngClass]= "{colorRed: first}">
+    {{emp.name}}&nbsp;
+    {{emp.age}}&nbsp;
+    {{emp.country}}&nbsp;
+    {{i}}
+  </li>
+</ul>
+
+<button (click) = "onReload()">Reload emp</button>
+
+<br>
+<!-- 
+<a [routerLink]="['/Home','router1']" routerLinkActive="router-link-active" >Router 1</a>
+<a [routerLink]="['/Home','router2']" routerLinkActive="router-link-active" >Router 2</a> -->
+
+<router-outlet name = 'nrouter1'></router-outlet>
+<router-outlet name = 'nrouter2'></router-outlet>
+
+

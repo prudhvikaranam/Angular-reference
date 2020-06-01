@@ -1,0 +1,22 @@
+After attaching form group and form control names to the input properties, we can validate, get value from the form and its controls in the following ways...
+
+get values from the form using
+
+myForm.value
+
+check if the form is valid by using
+
+myForm.valid
+
+To access the individual form controls, we can get them by using either
+
+myForm.controls.firstName.value
+myForm.controls.firstName.valid...
+
+or
+
+myForm.get('firstName').valud
+myForm.get('firstName').value
+
+
+All other properties dirty, pristine etc., are also available on both form and form controls.

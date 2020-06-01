@@ -1,0 +1,22 @@
+NgStyle attribute directive modifies the appearance of an element on which it is placed. We can also modify the appearance based on the values from component and can change
+the appearance by reacting to certain events.
+
+inside html...
+
+<div [ngStyle]="{'color': myColor, 'font-size':fontSize + 'px' }" > Sample Text </div>
+
+<input [(ngModel)]="myColor" />
+<button (click)='increaseSize()' >+</button>
+
+inside component...
+
+ myColor = 'blue';
+  
+  fontSize = 24;
+  increaseSize() {
+      this.fontSize = this.fontSize + 1;
+  }
+
+  Here, we are setting the color and size of the div element inside the component. These values can be dynamic, and can vary based on certain conditions.
+
+If we change the value in the input field, it will be changed automatically and similarly we can increase the size by pressing + button.

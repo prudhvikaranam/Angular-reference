@@ -1,0 +1,20 @@
+In angular 2, we can bind the values of HTML attributes to the values of the component.
+
+[property] syntax is used for property binding.
+
+Property Bindings are one way bindings, that is, the data from the component flows to the view.
+
+Eg:
+
+in component class
+
+isDisabled=true;
+
+in HTML
+
+<button [disabled]='isDisabled' >Submit</button>
+
+<h1 innerText={{title}}></h1>
+
+The above code makes the button disabled in the view, if we change the value of isDisabled to false in component, then the button will be enabled.
+In the above code, we hardcoded the value of isDisabled, but in real time scenarios, the information may depend on several external factors, which dynamically changes its value.

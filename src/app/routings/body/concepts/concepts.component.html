@@ -1,0 +1,77 @@
+<b>Absolute path: considers from the home path i.e., root URL (localHost://4200)
+  <span>"/"</span> defined Absolute path.
+</b>
+
+<br>
+
+<b>Relative path: considers from the path we are in i.e., localHost://4200/somepath</b>
+<br>
+<hr>
+<b>Navigate method <span>(to use Navigate method we need to import router from @angular router)</span> does'nt know we
+  are in which component, so we can consider this method follows as an absolute path<br>
+  If we want Navigate method to understand the relative path we can add an object in the navigate method which says
+  which path it should be relative to like
+  this.router.navigate(['Home'],relativeTo : this.activeRoute(relativeTo is an object)),
+  this loads as http://localhost:4300/Employees/Home,<br>
+  If we are not giving this relativeTo then URL will be http://localhost:4300/Home
+</b>
+<br>
+<hr>
+<b>RouterLink identifies in which component we are in, so absolute and relative paths exits and play those respective
+  roles</b>
+
+<br>
+<hr>
+
+<b>In routing Module --> path : 'Employees/id',component : EmployeeComponent. //If we are not using : in between / and
+  id, routing will work only if we pass ID(i.e., others thing will not work)</b>
+<br>
+<hr>
+
+<b>Activated route : Using this we can capture in which component we are in, few methods are snapshot method with params (params is an object) which works only if we are not in the current component (i.e., if we are in the same component and tried to load some data which is in the url it does'nt copy into the body)
+    <span>NOTE : As mentioned above this snapshot will not capture data if we are in current component, to make it work we have use another approach i.e., subscribe to the activated route with params as an object (since params always returns an observable).<br>example :  this.router.params.subscribe((currentParams) =>  something : currentParams['id']);
+</span></b><br><br><br><br>
+
+
+<img [src]="['../../../assets/Activatedroute.JPG']"><br><br><br><br>
+<b>QueryParams and Fragments(Needs to add)</b><br>
+<span><b>
+queryParams : We can also send some queryParamsto the url like below <br>
+ [routerLink] = "['/users',10,'Name']" [queryParams] = "allowEdit : 'true'" (where allowEdit : 'true' should be in curly braces since it is an object)<br>
+
+for Fetching queryParams Write code like below.<br>
+
+this.activatedRoute.snapshot.queryParams; or this.activatedRoute.queryParams.subscribe((queryParams) =>  something : queryParams['id']);<span>
+<b>
+  above can also be written like below
+   routerLink = '/users/10/Name'
+<b>
+<br>
+
+CanActivate: CanActivate and CanActivateChild are interfaces and have methods canActivate() and canActivateChild() respectively.<br>These methods return Boolean value. CanActivate is used for authentication and CanActivateChild is used for authorization.
+<a routerLink = 'https://www.concretepage.com/angular-2/angular-2-4-route-guards-canactivate-and-canactivatechild-example#technologies'>CanActivate Link
+</a><br>
+Authentication means confirming your own identity, while authorization means granting access to the system. In simple terms, authentication is the process of verifying who you are, while authorization is the process of verifying what you have access to.
+
+
+
+<br>
+<hr>
+Observables
+  Observables: we need to subscribe for observables, It takes three functions as arguments, first one will be fired when
+  ever there is a data changed.<br>
+  When you subscribe to anything and destroy that component (leave that component) subscription leaves always in the memory, So even if the component is destroyed, subscription won't. to make our subscription destroyed we have to use onDestroy method. But in the above activated subscription case Angular will do it for us (if we want we can use OnDestroy method there also).<br>
+  <img [src]="['../../../assets/ondestroy1.JPG']"><br>
+  <img [src]="['../../../assets/ondestroy2.JPG']">
+
+</b>
+
+
+
+
+
+
+<!-- <p *ngIf = "outlet.isActivated == false">
+    This is a parent page
+  </p>
+<router-outlet #outlet = "outlet"></router-outlet> -->

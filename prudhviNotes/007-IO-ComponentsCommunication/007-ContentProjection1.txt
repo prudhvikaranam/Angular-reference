@@ -1,0 +1,29 @@
+Apart from sending some properties values from parent component to child component, sometimes, we may want to pass/project some html content also. 
+We can do this by adding the html content that we want to pass to the child component, inside the child component selector and adding ng-content element inside the child component.
+
+Eg:
+
+The html content we want to pass to the child component inside
+
+<h1>From Parent Component</h1>
+
+So first we need to put the above html inside child component selector.
+
+<child-app>
+    <h1>From Parent Component</h1>
+</child-app>
+
+
+Then to retrieve the value sent by the parent, add ng-content inside child component html.
+
+....
+<ng-content></ng-content>
+....
+
+
+
+Apart from plain html, we can also pass parent component property values through content projection.
+
+<child-app>
+    <h1>From Parent Component {{parentProperty}} </h1>
+</child-app>

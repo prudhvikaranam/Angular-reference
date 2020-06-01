@@ -1,0 +1,11 @@
+										Global		To Child	 To Global
+
+Emulated           Yes	       	  No	           No
+
+
+
+Native             No             Yes              No
+
+
+
+None              Yes             Yes              Yes

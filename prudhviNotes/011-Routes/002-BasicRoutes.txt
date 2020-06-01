@@ -1,0 +1,20 @@
+To load a component containing welcome message in the home page and to display a component containing 404 error message when nothing matches in the route,
+ we can configure our routes as following
+
+RouterModule.forRoot([
+      { path:'', component: WelcomeComponent },
+      { path: '**', component: NotFoundComponent }
+    ])
+
+now inside the root component (normally app component), we have to provide an outlet, where the routes load.
+
+inside app component..
+
+<h1>
+  {{title}}
+</h1>
+
+<router-outlet></router-outlet>
+
+Note that, in angular routes, Order of routes matters, that is, if we give { path: '**', component: NotFoundComponent } first in the array, then it matches to every path, 
+so we always get 404 error message.

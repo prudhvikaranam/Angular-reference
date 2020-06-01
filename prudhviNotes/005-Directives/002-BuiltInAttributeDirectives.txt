@@ -1,0 +1,5 @@
+Angular 1.x have more than 50 built in directives, but A2 have only 3 built in Attribute Directives.
+
+NgStyle
+NgClass
+NgModel

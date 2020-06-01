@@ -1,0 +1,13 @@
+Install Node JS latest version.
+
+install angular cli from command promt using
+
+npm install -g @angular/cli
+
+Then create a new angular application using the command
+
+ng new myApp
+
+then run the application by using the command 
+
+ng serve

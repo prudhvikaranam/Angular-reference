@@ -1,0 +1,23 @@
+By default the styles defined in the global styles will propagate to all components.
+
+That is, if we define any style inside main index.html file, all those styles will be applied to all components.
+
+Then, if we define any styles for any particular component, those styles will override the global styles.
+
+If we define any style in one component, and if that component have another component in its html, the styles defined in the parent component won't propagate to the child component.
+
+If we want to modify this behaviour of any component, we need to provide an additional parameter to component declaration syntax - encapsulation.
+ (we also need to import ViewEncapsulation from angular core).
+
+encapsulation: ViewEncapsulation.Emulated  (this is default behaviour)
+
+
+To check this behaviour - Add the following css to global styles.css file
+
+h1 {
+    color: olive;
+}
+
+Then this value will be applied to all h1 elements in the application (as long as we do not have any other h1 defined locally for any component).
+
+The styles defined in the component will not go propagate to the global styles.

@@ -1,0 +1,28 @@
+Angular introduced ng-template in angular 4, which is used as an else part for ngif statement.
+
+<div *ngIf='true else epart' >
+  If true
+</div>
+
+
+
+
+<ng-template  #epart>
+  some text
+</ng-template>
+
+
+With the above html code, as we have given true in ngIf, the html inside its div will be rendered and the html inside ng-template will not be rendered.
+
+If we change it to false like below, then the html in the ng-template will be rendered.
+
+<div *ngIf='false else epart' >
+  If true
+</div>
+
+
+
+
+<ng-template  #epart>
+  some text
+</ng-template>

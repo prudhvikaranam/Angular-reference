@@ -1,0 +1,16 @@
+Lower and Upper case pipes transforms a text into lowercase and uppercase.
+
+inside component:
+
+myString = "Hello World";
+
+in the template
+
+{{myString | lowercase}}
+<br>
+{{myString | uppercase}}
+
+the result will be
+
+hello world 
+HELLO WORLD

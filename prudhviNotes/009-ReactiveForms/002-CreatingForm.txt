@@ -1,0 +1,23 @@
+Unlike template driven forms, where angular creates a form group behind the scenes and give us access to it, in reactive forms we need to build the form, which can be done in a couple of ways.
+
+First import FormGroup and FormControl from @angular/forms inside the component
+
+import { FormGroup, FormControl } from '@angular/forms';
+
+Then create a form group inside the component class and add required controls to the group.
+
+    myForm: FormGroup;
+
+    constructor() {
+      this.myForm = new FormGroup({
+        firstName: new FormControl(''),
+        lastName: new FormControl('')
+      })
+
+Then we need to attach the created FormGroup in the template. To do so, we need to attach FormGroup to the form element and form controls to the different input elements.
+
+<form [formGroup]='myForm' >
+        First Name: <input type="text" formControlName='firstName'>
+        Last Name: <input type="text" formControlName='lastName'>
+</form>
+

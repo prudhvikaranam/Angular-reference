@@ -1,0 +1,21 @@
+We can initialize form with pre defined values at the time of creating form controls.
+
+eg:
+
+firstName = new FormControl('John');
+
+
+If we want to set all values of a form, we can use setValue method on the form group.
+
+inside component
+
+myForm.setValue({
+    firstName: 'John',
+    lastName: 'Doe'
+})
+
+Note that, when we use setValue, we must provide values to all form controls that are associated with the form group. If we want to give value only to specific controls, we have to use patchValue
+
+myForm.patchValue({
+    firstName: 'John'
+})

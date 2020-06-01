@@ -1,0 +1,23 @@
+Sometimes, we may have to navigate from one place to another, based on any user action.
+
+Suppose, when the user click on logout button, we may have to take them to the home page of the application.
+
+To do that, we need to import Router inside the component, and navigate to another route using its navigate method.
+
+In template...
+
+<button (click)='logout()' >Logout</button>
+
+In the component,
+
+import {Router} from '@angular/router';
+
+then inside the class
+
+constructor(public router: Router) {
+
+    }
+
+    logout() {
+        this.router.navigate(['']);
+    }

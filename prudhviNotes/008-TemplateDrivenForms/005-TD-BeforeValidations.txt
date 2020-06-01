@@ -1,0 +1,46 @@
+<div class="container">
+  <h1>Template Driven Form</h1>
+  <form>
+    <div class="form-group">
+      <label for="name">First Name</label>
+      <input type="text" class="form-control">
+      <label for="name">Last Name</label>
+      <input type="text" class="form-control">
+      <label for="name">Email</label>
+      <input type="email" class="form-control">
+      <label for="name">Password</label>
+      <input type="password" class="form-control">
+      <label for="name">Confirm Password</label>
+      <input type="password" class="form-control">      
+    </div>
+    <div class="form-group">
+      <label for="gender">Hobbies</label>
+      <div class="checkbox">
+        <label><input type="checkbox">Technology</label>
+      </div>
+      <div class="checkbox">
+        <label><input type="checkbox">Entertainment</label>
+      </div>
+      <div class="checkbox">
+        <label><input type="checkbox">Sports</label>
+      </div>
+    </div>
+    <br>
+    <div class="radio">
+      <label for="gender">Gender</label>
+      <label class="radio-inline"><input type="radio"  value="male" >Male</label>
+      <label class="radio-inline"><input type="radio"  value="female">Female</label>
+    </div>
+
+    <div class="form-group">
+      <label for="color">Select Color</label>
+      <select class="form-control">
+        <option value="red">Red</option>
+        <option value="blue">Blue</option>
+        <option value="green">Green</option>
+      </select>
+    </div>
+
+    <button type="submit" class="btn btn-success">Submit</button>
+  </form>
+</div>

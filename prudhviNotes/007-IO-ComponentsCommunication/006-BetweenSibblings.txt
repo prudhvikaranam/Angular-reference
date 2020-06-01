@@ -1,0 +1,1 @@
+We have to use services for sharing data between sibling components, which we will see later.

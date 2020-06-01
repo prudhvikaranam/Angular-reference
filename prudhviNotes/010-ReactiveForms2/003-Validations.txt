@@ -1,0 +1,16 @@
+Apart from using validators, we can also check for form control validity and show appropriate message to user.
+
+First subscribe to any form control value change event, then add validations
+
+this.myForm.controls.email.valueChanges.subscribe((value) => {
+        console.log(value);
+        if(this.myForm.controls.email.invalid === true) {
+          this.invalidEmail = true;
+        } else {
+          this.invalidEmail = false;
+        }
+      })
+
+Then display appropriate message in the template
+
+<span *ngIf='invalidEmail' >  Invalid Email</span><br>

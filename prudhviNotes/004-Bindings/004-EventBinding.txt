@@ -1,0 +1,33 @@
+In Event Bindings, data flow from view to the component.
+
+We can bind an element in the view to any event, and can perform certain action in the component when that event occurs.
+
+(event name)='action to perform()' is the syntax used for event binding.
+
+Eg:
+
+<button (click)='clickEvent()'>Click Me </button>  , where clickEvent() is a method inside component class.
+
+clickEvent() {
+    console.log('Perform Something Here');
+}
+
+2.
+
+The function triggers, when user enters something in the input field, will be executed for each letter.
+
+<input type="text" (input)='inputEvent()' >
+
+inputEvent() {
+    console.log('User Started Typing');
+}
+
+3
+
+This function will be triggered, when user copy some/full part of the text
+
+<h4 (copy)='copyEvent()' > some information</h4>
+
+copyEvent() {
+    console.log('User Copied Something');
+}

@@ -1,0 +1,90 @@
+We can dynamically add one component into another component. 
+
+These components are the Entry Components.
+
+When we create any dynamic component, apart from adding to decorators array of module, we need to add these components to 
+Entry Components Array also.
+
+Suppose we have two components that we want to dynamically add to App Component on click of buttons.
+
+First Component:
+
+import {Component} from '@angular/core';
+
+@Component({
+    templateUrl: './first.component.html'
+})
+export class FirstComponent {
+    message: string;
+}
+
+its HTML:
+
+{{message}}
+
+Second Compoent:
+
+import {Component} from '@angular/core';
+
+@Component({
+    templateUrl: './second.component.html'
+})
+export class SecondComponent {
+    message: string;
+}
+
+its HTML:
+
+{{message}}
+
+First lets add these to app module.
+
+declarations: [
+    AppComponent, FirstComponent, SecondComponent
+  ],
+  entryComponents: [FirstComponent, SecondComponent]
+
+....
+
+Now, First we need to have to container, where we dynamically render these components. 
+So, lets have the following html in app component.
+
+<ng-container #compContainer ></ng-container>
+
+Now, we access this container inside component by using viewChild
+
+@ViewChild('compContainer', {read: ViewContainerRef} )  container: ViewContainerRef;
+
+We also need to import ComponentFactoryResolver from angular core, to resolve and create component. Then we have to inject this
+
+constructor(public resolver: ComponentFactoryResolver) {}
+
+Now to create a component at any time (now on the click of a button inside a method)
+
+First, we clear the container, where we place them.
+Second, we create a Factory, which we need to pass to the container to create a component.
+Then we create a component using the container and can save it in a reference.
+
+
+ createFirstComponent() {
+    this.container.clear();
+    let cFactory = this.resolver.resolveComponentFactory(FirstComponent);
+    let ref = this.container.createComponent(cFactory);
+    ref.instance.message = 'This is First Component'   
+  }
+  createSecondComponent() {
+    this.container.clear();
+    let cFactory = this.resolver.resolveComponentFactory(SecondComponent);
+    let ref = this.container.createComponent(cFactory);
+    ref.instance.message = 'This is Second Component';      
+  }
+
+  Instead of having references inside the method, we can have them at component level also, so that
+  we can destroy these components when required in the following way.
+
+  ref.destroy();
+
+  Note that, on each click, angular will create a new component instance and render it. So, we have to careful and 
+  have to destroy the components when not required.
+
+  If we do not clear the container, then the components will be added next to previous content.

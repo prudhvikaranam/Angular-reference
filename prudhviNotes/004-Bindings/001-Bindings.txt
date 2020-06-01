@@ -1,0 +1,13 @@
+Static html is ok, as long as we want to show only static content to the user. But that makes our application a pretty old static html website.
+
+In dynamic applications, data comes from various sources and we also need to react to the actions that happen in the view, such as user click on a button. We will see them in bindings.
+
+Bindings is the way of linking component values and the view.
+
+In AngularJS everything was two way binding. A link between view and controller was always there. If the number of links becomes more, it affects the performance of the application.
+
+In Angular 2, we have both one way and two way bindings.
+
+In one way binding, data flows either from component to the view or from view to the component.
+
+In two way bindings, a link between the view and component will be established. Angular suggests to use less number of two way bindings.

@@ -1,0 +1,22 @@
+We can nest one form group in another form group like below
+
+ this.subGroup = this.fb.group({
+      city: ''
+    })
+    this.myForm = this.fb.group({
+      name: ['', Validators.required],
+      address: this.subGroup
+    });
+
+with the above form, if we console log subGroup, we can get myForm as its parent and root.
+
+note that, if we do like below
+
+this.myForm = this.fb.group({
+      name: ['', Validators.required],
+      address: this.fb.group({
+        city: ''
+      })
+    });
+
+then, we get parent as undefined.

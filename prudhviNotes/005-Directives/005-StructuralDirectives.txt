@@ -1,0 +1,9 @@
+Structural directives modifies the DOM of a web page. They create or remove elements based on certain conditions.
+
+Angular 2 comes with 3 structural directives
+
+ngIf
+ngFor
+ngSwitch
+
+We need to put an asterick symbol before directive name when using inside template such as *ngIf

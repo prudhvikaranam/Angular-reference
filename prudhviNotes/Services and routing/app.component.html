@@ -1,0 +1,24 @@
+<h1>Angular App</h1>
+
+<a href="">Home </a>
+<a href="user">User </a>
+<a href="sfdsfsd">Not Found</a>
+
+<br>
+
+Angular Way:
+<br>
+
+<a routerLink="">Home </a>
+<a routerLink="user"  [queryParams]='{userName: "John" }' >User </a>
+<a [routerLink]="['user', userName]">Pruthvi </a>
+<a routerLink="user/probal">Probal </a>
+<a routerLink="sfdsfsd">Not Found</a>
+
+<router-outlet></router-outlet>
+
+<!-- From App: {{appS.userName}}
+
+<br>
+
+<child-app></child-app> -->

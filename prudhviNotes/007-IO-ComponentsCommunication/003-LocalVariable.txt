@@ -1,0 +1,5 @@
+To get the data from child component, in the parent component, we can create a local variable on child component selector, then access its properties.
+
+<child-app #childData> </child-app>
+
+now in the parent component view we can use child component data using childData.propertyname syntax.

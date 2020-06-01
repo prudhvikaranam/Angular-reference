@@ -1,0 +1,34 @@
+ngIf directive adds or removes DOM element based on certain condition.
+
+
+
+<div *ngIf='showMessage' > Show Message or Not? </div>
+<button (click)='hideMessage()' >Hide Message</button>
+
+inside the component...
+
+showMessage = true;
+
+hideMessage() {
+    this.showMessage = false;
+}
+
+
+Another Way....
+
+<div *ngIf='someVar' > Show Message or Not? </div>
+<button (click)='hideMessage()' >Hide Message</button>
+
+inside component
+
+someVar = "hello world";
+
+hideMessage() {
+    this.someVar = false;
+}
+
+Even with the above code, though the value of someVar is not true, angular shows the text inside the template.
+
+That is because, here indirectly we are checking whether the variable someVar exists or not. As the variable exists, angular gives true value to ngIf statement.
+
+when we change the value of someVar to false or undefined or null, then the statement becomes false. If we assign any other text or number, it is considered as the variable exists so true.

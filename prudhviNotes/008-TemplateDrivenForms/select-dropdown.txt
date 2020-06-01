@@ -1,0 +1,30 @@
+To have a dropdown, we can use the following html
+
+  <div class="form-group">
+    <label for="exampleFormControlSelect1">Example select</label>
+    <select class="form-control" ngModel name="select" >      
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+  </div>
+
+  Now the user have to click on the dropdown and select an option. 
+
+  To show a message to user to ask them to select an option, we can give one additional option.
+
+    <div class="form-group">
+    <label for="exampleFormControlSelect1">Example select</label>
+    <select class="form-control" ngModel name="select" >      
+      <option value="" selected >Select an Option</option>
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+  </div>
+
+  Note that the 'Select an Option' will be shown, only when you have value property with "" value.

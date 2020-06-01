@@ -1,0 +1,14 @@
+An Angular 2 application contains atleast one Angular Module and one component.
+
+Angular 2 application can also have services and depend on external angular modules such as forms, routes, http etc., or custom modules.
+
+Angular 2 root module contains the information about all components, services, and other modules that are used inside the application.
+
+A very basic Angular 2 application containts atleast one Root Module and one Root Component.
+
+An Angular 2 application comes with few built in directives and pipes which we can use inside the application. If we want to create our own directives or pipes, 
+we can create them, 
+then we have to inform Angular 2 application about the custom directives or pipes through Angular Module.
+
+
+

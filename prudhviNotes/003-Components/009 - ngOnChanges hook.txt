@@ -1,0 +1,3 @@
+ngOnChanges life cycle hook will be executed everytime, where an input value changes in any component.
+
+If a child component is receiving some value from some other component, and if that value changes in other component, then it will be changed inside the child component then the ngOnChanges hook will be fired.

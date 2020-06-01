@@ -1,0 +1,7 @@
+Angular reactive forms status can be either VALID or INVALID.
+
+We can also subscribe to the status changes like below
+
+this.myForm.statusChanges.subscribe((data) => {
+      console.log(data);
+    })

@@ -1,0 +1,15 @@
+The error message we return from the validator function if the input value is Invalid, will be received by its control (rating in our case)
+
+In our example, when the input value is valid and if we access
+
+myForm.controls.rating.errors 
+
+its value will be null.
+
+If the input value is Invalid (that is above 5 or below 1) its value will be
+
+{valid: false} (which we returned from the validator function).
+
+We can use these things to show any error message to the user like below.
+
+<div *ngIf='myForm.controls.rating.errors && myForm.controls.rating.dirty ' >Please enter a value in between 1 and 5</div>

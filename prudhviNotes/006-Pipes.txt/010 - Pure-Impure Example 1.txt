@@ -1,0 +1,50 @@
+Suppose we want to send an object to a pipe and get object.name property value. Then we can write our pipe like the following.
+
+import {Pipe, PipeTransform} from '@angular/core';
+
+@Pipe({
+    name: 'Pure'
+})
+export class CustomPipe implements PipeTransform {
+    transform(data) {
+        return data.name;
+    }
+}
+
+Then, lets have an object in any component
+
+person = {
+  name: 'John Doe'
+};
+
+Then, lets use this in our template, in different ways...
+
+Person Name: <input type="text" [(ngModel)]='person.name' >
+<br>
+
+Normal: {{person.name}}
+
+<br>
+
+Pure: {{person | Pure}}
+
+Now, if we modify the value in the input, the value coming after the transformation will not be modified. 
+
+Then add the following parameter to the pipe
+
+pure: false
+
+which makes the entire pipe 
+
+
+@Pipe({
+    name: 'Pure',
+    pure: false	
+})
+export class CustomPipe implements PipeTransform {
+    transform(data) {
+        return data.name;
+    }
+}
+
+Now, when we change the value in the input, the value returned from the pipe will also be changed.

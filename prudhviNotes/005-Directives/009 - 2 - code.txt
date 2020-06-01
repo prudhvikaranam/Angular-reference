@@ -1,0 +1,32 @@
+import {Directive, ElementRef} from '@angular/core';
+
+@Directive(
+    {
+        selector: '[myDirective]'
+    }
+)
+export class MyDirective {
+    constructor(public el: ElementRef) {
+        this.el.nativeElement.innerText = 'Hello World';
+        this.el.nativeElement.style.backgroundColor = 'yellow';
+        this.el.nativeElement.addEventListener('click', () => {
+            console.log('clicked on me');
+        });
+        this.el.nativeElement.addEventListener('mouseover', () => {
+            this.el.nativeElement.classList.add('newStyle');
+        } );
+
+        this.el.nativeElement.addEventListener('mouseleave', () => {
+            this.el.nativeElement.classList.remove('newStyle');
+            this.el.nativeElement.click();
+        } );
+        
+    }
+}
+
+
+add style to component css file
+
+.newStyle {
+    font-size: 30px;
+}

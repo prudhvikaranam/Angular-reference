@@ -1,0 +1,13 @@
+Apart from viewing child component values inside parent component, we can access the template variables too using ViewChild.
+
+inside temple...
+
+<h1 #heading>My Heading </h1>
+
+then inside component...
+
+@ViewChild('heading') getHeading;
+
+console.log(getHeading.nativeElement.innerText);
+
+Note that here, we have to use getHeading.nativeElement.innerText to access the value of the heading instead of getHeading.innerText or getHeading.value(for input template variables)

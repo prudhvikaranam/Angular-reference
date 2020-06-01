@@ -1,0 +1,9 @@
+We can often have much deeper links in our application, to handle them we have to declare our routes appropriately
+
+{path: 'user/:id/edit', component: UserComponent}
+
+the above declaration handles urls such as user/123/edit
+
+Note that, here id need not be only a number, it can be a combination of string and number such as
+
+user/abc123/edit

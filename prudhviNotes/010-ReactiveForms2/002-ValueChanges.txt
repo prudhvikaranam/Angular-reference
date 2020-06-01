@@ -1,0 +1,15 @@
+One more advantage of using Reactive forms is, we can listen to the value changes property of the form, and we can take certain task, based on the changes.
+
+To listen to the value changes, we need to subscribe to that property.
+
+To subscribe to entire form value changes...
+
+this.myForm.valueChanges.subscribe(value => {
+        console.log(value);
+      });
+
+To listen to a specific form control value changes
+
+this.myForm.controls.email.valueChanges.subscribe((value) => {
+        console.log(value);
+      })

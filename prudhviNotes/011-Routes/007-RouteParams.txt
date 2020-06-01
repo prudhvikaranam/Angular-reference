@@ -1,0 +1,30 @@
+In most applications, we may not have all static pages, and we may have to render some content based on a value in the url, such as user id.
+
+We can pass values from the template to the component
+
+<a  [routerLink]="['/user/3/']"> User </a>
+<a  [routerLink]="['/user', 3]"> Edit </a>
+<a  routerLink="/user/3/"> Edit2 </a>
+
+All above types are valid and results in sitename/user/3/ url.
+
+In the above example we hardcoded 3 in the link, but the value can come from the component also
+
+<a  [routerLink]="['/user', userId]"> Edit </a>
+
+where userId is a value coming from the component.
+
+To handle the above format, we need to declare our route as following
+
+{path: 'user/:id', component: UserComponent}
+
+With the above declaration, now id holds the value.
+
+Then to access these params in the component, we need to first import the ActivatedRoute from angular router module, then inject it through constructor, then use as below
+
+import {ActivatedRoute} from '@angular/router';
+
+constructor(public route: ActivatedRoute) {        
+    }
+
+let id = this.route.snapshot.params['id'];

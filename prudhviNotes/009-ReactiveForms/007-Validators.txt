@@ -1,0 +1,11 @@
+Instead of add validators to form such as required in the template, we can add validators to reactive forms inside the component also.
+
+We can add validators at the time of defining a form control.
+
+First import Validators from angular forms, then add validtors at the time if defining the form control.
+
+this.myForm = this.fb.group({
+        firstName: ['John', Validators.required] ,
+        lastName: ['Doe', [Validators.required, Validators.minLength(3)] ],
+        email: ['', [Validators.required, Validators.pattern("[a-z0-9._%+-]+@[a-z0-9.-]+")]
+      })

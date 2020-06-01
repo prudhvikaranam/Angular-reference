@@ -1,0 +1,16 @@
+We can reset a form by using the available reset method on the formGroup like below
+
+this.myForm = this.fb.group({
+      name: ['John', Validators.required],
+      address: this.fb.group({
+        city: ''
+      })
+    });
+
+this.myForm.reset();
+
+The above option simply sets all the values to null. In the above example, we gave John as default value to name, and even this value will be reset to empty or null.
+
+If you want to reset to some default / other values, we need to provide those values as well like below
+
+this.myForm.reset({name: 'John', address: {city: 'blr'}});

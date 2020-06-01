@@ -1,0 +1,3 @@
+Suppose if we are sorting an Array or an Object through some pipe, and if somethings gets modified in the array or the object, a pure pipe do not recognize those changes.
+
+An impure pipe will call the transform function everytime when there is a change.

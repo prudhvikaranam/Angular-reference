@@ -1,0 +1,43 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" routerLink="">Routing</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+        <a
+          [routerLink]="[
+            '/Home',
+            {
+              outlets: {
+                'nrouter1' : ['router1'],
+                'nrouter2' : ['router2']
+              }
+            }
+          ]"
+          >Home</a
+        >
+      </li>
+      <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+        <a routerLink="Employees">Employees</a>
+      </li>
+      <!-- <li routerLinkActive = 'active' 
+          [routerLinkActiveOptions] = "{exact : true}">
+        <a routerLink = 'Employee'>Employee</a>
+      </li> -->
+      <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+        <a routerLink="Admin">Admin</a>
+      </li>
+      <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+        <!-- <a [routerLink] = "['Contact']">Contact</a> -->
+        <a [routerLink]="['Contact']">Contact</a>
+      </li>
+      <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+        <a routerLink="Concepts">Concepts</a>
+      </li>
+      <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+        <a routerLink="parentChild">Parent-Child relation Ships</a>
+      </li>
+    </ul>
+  </div>
+</nav>

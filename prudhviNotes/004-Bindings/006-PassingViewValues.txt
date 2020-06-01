@@ -1,0 +1,15 @@
+After creating temporary view variables, we can pass them to the component through event binding.
+
+<h2 #val>
+  Second Heading
+</h2>
+
+<input type="text" #myInput >
+
+
+<button type="button" class="btn btn-primary" (click)='passValue(val)' >Pass Value</button>
+here we are passing h2 element, to get the value in the component, we need to access its .innerText property
+
+
+<button type="button" class="btn btn-primary" (click)='passInputValue(myInput)' >Pass Value</button>
+for Input variables, innerText is not available, so we need to get input value by using .value property.

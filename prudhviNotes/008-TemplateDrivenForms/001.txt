@@ -1,0 +1,7 @@
+Forms are one of the very important part of many web applications. Angular 2 have an entire module dedicated to forms which we need to import in app.module.ts file.
+
+import { FormsModule } from '@angular/forms';
+
+then add FormsModule to the imports array.
+
+We can implement forms in two different ways in Angular, Template Driven and Model Driven.

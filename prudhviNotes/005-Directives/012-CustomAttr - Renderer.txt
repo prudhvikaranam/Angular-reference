@@ -1,0 +1,20 @@
+import {Directive, ElementRef, HostListener, Renderer2, OnInit} from '@angular/core';
+
+@Directive(
+    {
+        selector: '[secondDirective]'
+    }
+)
+export class SecondDirective implements OnInit {
+    constructor(private renderer: Renderer2, private elRef: ElementRef) {
+        
+    }
+
+    ngOnInit() {
+        const li = this.renderer.createElement('li');
+        const text = this.renderer.createText('Second Directive');
+        this.renderer.appendChild(li, text);
+        this.renderer.appendChild(this.elRef.nativeElement, li);
+    }
+
+}

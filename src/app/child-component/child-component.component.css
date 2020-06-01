@@ -1,0 +1,6 @@
+/* .hostselector{
+  color:royalblue;
+} */
+:host{
+  color:orangered;
+}

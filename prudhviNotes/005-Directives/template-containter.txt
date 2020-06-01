@@ -1,0 +1,45 @@
+Previously we had ng-template in html and used the html inside it at different places by using *ngTemplateOutlet.
+
+Some times we may have to dynamically generate the view from ng-template from the component also.
+
+Lets have the following code in the template, one for ng-template and one for ng-container.
+
+<ng-template #template2 >
+ Generated From Component
+</ng-template>
+
+<ng-container #vc></ng-container>
+
+Now, we want to generate the html content which is inside ng-template into ng-container.
+
+ @ViewChild('template2') template: TemplateRef<any>;
+ @ViewChild('vc', {read:ViewContainerRef} ) vc: ViewContainerRef;
+
+ ngOnInit() {     
+    this.vc.createEmbeddedView(this.template);        
+  }
+
+With the above code, angular now will take the html from ng-template and render at the place of ng-container.
+
+....
+
+Above, we rendered some static html. Similar to the way we used ng-template with *ngTemplateOutlet in different contexts, 
+we can create and render it in different contexts from component also.
+
+<ng-template #template2 let-id='id' >
+  From Component: {{id}}
+</ng-template>
+
+<ng-container #vc></ng-container>
+
+now in our component
+
+@ViewChild('template2') template: TemplateRef<any>;
+@ViewChild('vc', {read:ViewContainerRef} ) vc: ViewContainerRef;
+
+ngOnInit() {    
+    this.vc.createEmbeddedView(this.template,  {id: 999} );
+    this.vc.createEmbeddedView(this.template,  {id: 666} )         
+  }
+
+

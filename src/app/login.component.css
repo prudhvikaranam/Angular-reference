@@ -1,0 +1,54 @@
+.main-container {
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+  height: 100vh;
+  
+}
+
+.container {
+  background-color: rgba(0, 0, 0, 0.6);
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-form {
+  width: 48%;
+  height: 60%;
+  background: rgb(0, 46, 80, 0.3);
+  border-radius: 11px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.background-color {
+  background-color: gray;
+  width: 100%;
+  height: 100%
+}
+
+span {
+  margin: 9px 0px;
+  width: 56%;
+  display: flex;
+  justify-content: space-evenly;
+}
+input{
+  height: 24px;
+  width: 193px;
+  border-radius: 8px;
+}
+input:active{
+  border: 1px solid blue;
+}
+input:focus{
+  border: none;
+  outline: none;
+}

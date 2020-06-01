@@ -1,0 +1,5 @@
+Angular does not leak the properties of components outside. A Parent component cannot access the values of child component and vice versa.
+
+With Input, a child component can receive values from its parent component.
+
+A child component can output any values using an event emitter, which can be received by its parent.

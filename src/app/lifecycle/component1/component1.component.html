@@ -1,0 +1,25 @@
+<h1 [ngStyle]="{ 'text-align': 'center' }">
+  Consists : OnChanges, DoCheck,Custom directives
+</h1>
+<h2 [ngStyle]="{ color: 'white', width: '28%' }" appCustom>
+  My name is Component 1
+</h2>
+<b
+  >h1 color will be changed on clicked because we have used custom directive on
+  that</b
+>
+<hr />
+C1 First input field :
+<input type="text" [(ngModel)]="c1FirstValue.name" /><br />
+C2 Second input field : <input type="text" [(ngModel)]="c1SecondValue" />
+
+<hr />
+<hr />
+
+
+<app-component2
+  [c2IncomingFirstValueAlias]="c1FirstValue"
+  [c2IncomingSecondValueAlias]="c1SecondValue"
+>
+Some text in between app-component 2 tag in Comp 1
+</app-component2>

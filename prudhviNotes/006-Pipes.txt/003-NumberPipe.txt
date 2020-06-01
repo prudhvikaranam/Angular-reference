@@ -1,0 +1,30 @@
+Inside component
+
+myNum = 123.845841234;
+
+in html
+
+{{myNum | number}}
+
+the result will be
+
+123.846
+
+By default angular limits the decimal points to 3 digits. Also note that after 5 in the original number we have 8. So angular transformed it to 123.846 instead of 123.845.
+
+{{myNum | number:'5.2'}}
+
+the result will be
+
+00,123.846
+
+The first option 5 tells what are the minimum number of digits to show on lhs of the decimal point. The next number 2 tells the minimum number of digits on rhs of the decimal point.
+Here though we mentioned 2, as default value 3 is greater than 2, angular is showing 3 digits. To limit maximum number of decimal points we have to provide additional parameter.
+
+{{myNum | number:'1.1-1'}}
+
+now the result will be
+
+123.8
+
+Here again though we mention 1 for lhs, as it is for minimum number of digits, angular shows all digits.

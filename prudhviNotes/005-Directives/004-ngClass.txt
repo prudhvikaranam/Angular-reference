@@ -1,0 +1,36 @@
+e ListSimilar to ngStyle, ngClass modifies the appearance of an element on which it is placed.
+
+using ngClass we can apply difference css classes on an element in different ways.
+
+As a series of strings separated by spaces, as an array and as an object.
+
+inside css file...
+
+.one {
+    color: green;
+}
+.two {
+    font-size: 20px;
+}
+
+in html file...
+
+<div [ngClass]="['one', 'two']">Classes as an Array</div>
+
+<div [ngClass]="'one two'">Classes as Strings separated by space</div>
+
+<div [ngClass]="{'one': true, 'two': show}">object of classes</div>
+
+<button (click)='changeClass()' >Change Class</button>
+
+
+in component file
+
+  show = true;
+  changeClass() {
+      this.show = false;
+  }
+
+  Applying classes in different ways is useful, especially when we get classes from an external as an array or as a series of strings or as an object.
+
+  If we want to disable certain class on any element, object format is very useful, where we can pass the value from component property as true or false and change it based on certain action.

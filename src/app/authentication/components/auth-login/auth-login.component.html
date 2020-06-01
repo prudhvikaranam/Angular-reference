@@ -1,0 +1,12 @@
+<div class="login" id="login" *ngIf="outlet.isActivated == false">
+  <h3>Login Page</h3>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm.value)">
+    <div>
+      User Name : <input type="text" formControlName="userName" /><br />
+      Password : <input type="password" formControlName="password" /><br />
+      <button type="submit" class="btn btn-primary">Login</button>
+    </div>
+  </form>
+</div>
+
+<router-outlet #outlet="outlet"></router-outlet>

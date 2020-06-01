@@ -1,0 +1,15 @@
+When angular creates form object, it adds following properties to the input elements of the form and the form itself. Based on these we can validate the form.
+
+To each input element and form, the following properties will be available
+
+ng-valid  - True if the element is valid
+ng-invalid - True if the element is invalid
+
+ng-touched - True if the user entered into the form element atleast once
+ng-untouched - True if the user didn't enter into the input element
+
+ng-pristine - True if the value of the input element is not changed
+ng-dirty - True if the value of the input element is changed
+
+
+All of the above properies are available on the form itself, based on which we can check the validity of overall form.

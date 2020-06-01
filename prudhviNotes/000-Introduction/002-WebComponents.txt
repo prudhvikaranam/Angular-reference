@@ -1,0 +1,45 @@
+Web Components are custom html elements created by a developer or a company.
+
+eg:
+
+<custom-table rows=5 columns=5><custom-table>
+
+Instead of using several div tags, table elements for creating a table, we can create a custom html element similar to the above.
+
+The same code can be reused by different applications, if we develop it to be re usable.
+
+We can think Web Components idea similar to Object Oriented Programming.
+
+One programmer or a company can create one web component, and can distribute them as per their wish. That is free or paid.
+
+Programmers can create General Purpose web components for different requirements.
+
+Companies can create web components which offers an easy interface with their applications, such as Amazon to easily use their AWS features.
+
+Web Components have the following core concepts
+
+1.	Custom HTML elements
+2.	HTML templates
+3.	Shadow DOM
+
+
+1.	Custom HTML elements
+
+•	May contain letters, digits, dots, hyphens, and underscores
+•	Can't contain uppercase letters
+•	Can't conflict with existing elements or CSS properties
+•	Must contain at least one hyphen
+
+eg: <my-component></my-component>
+
+2.	HTML templates
+
+The HTML, that has to be rendered when the my-component element is used.
+
+3.	Shadow DOM
+
+The HTML that is rendered through a web component is independent from its parent.
+
+i.e. If parent DOM has a style that shows all H1 elements in blue color, and if there is any H1 inside an web component, it need not to be blue.
+
+The html elements that comes from a web component, are not accessable from parent DOM tree. Only the web element is accessable from the parent DOM tree.

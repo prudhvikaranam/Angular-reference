@@ -1,0 +1,61 @@
+We can use ng-template to define some html and use it at multiple places dynamically.
+
+Whatever we put inside ng-template tags will not be visible. Here we just define the template, and later we need to use it dynamically.
+
+If we have the following html code in any component...
+
+<ng-template #template >
+  <h2>Some content inside the template</h2>
+  <div>one div tag</div>  
+</ng-template>
+
+It will not be rendered by default. But we can render it later in the following way by using *ngTemplateOutlet directive
+
+<ng-container *ngTemplateOutlet='template' ></ng-container>
+
+instead of ng-container, we can use any other tag. Angular will simply remove that tag, and place the html which is inside ng-template 
+in that place.
+
+<div *ngTemplateOutlet='template' ></div>
+
+........
+
+We can also use ng-template with new *ngIf directive in the following way
+
+<div *ngIf='condition else #elseTemplate' > content to show when the condition is true</div>
+
+<ng-template #elseTemplate >
+    <div>content to show when the condition is false</div>
+</ng-template>
+
+........
+
+We can use *ngTemplateOutlet as many times as we want.
+
+<div *ngTemplateOutlet='template' ></div>
+<ng-container *ngTemplateOutlet='template' ></ng-container>
+<div *ngTemplateOutlet='template' ></div>
+<ng-container *ngTemplateOutlet='template' ></ng-container>
+
+.....
+
+With the above code, we render the same html code, wherever we used *ngTemplateOutlet. 
+
+We can make it dynamic, in the following way
+
+<ng-template #template let-id='id' >
+  user id: {{id}}
+</ng-template>
+
+<div *ngTemplateOutlet='template; context:user2' ></div>
+
+<div *ngTemplateOutlet='template; context:user1' ></div>
+
+Inside the component, we can have different users
+
+  user1 = {id: 'John'}
+  user2 = {id: 'Jane'}
+
+With the above code, now the html code inside ng-template will be rendered in the context of user1 and user2.
+
+let- syntax is available only on ng-template tag.

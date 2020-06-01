@@ -1,0 +1,16 @@
+Custom validator function accepts only one element, that is the value and properties of element that we want to validate.
+
+If we want to pass parameters to this function, we need to wrap this element inside another function and return the validator function.
+
+validatorWithParams(min, max):ValidatorFn {
+      return (rating: AbstractControl) => {
+      if ( rating.value!= undefined && (isNaN(rating.value) || rating.value < min || rating.value > max )) {
+        return {range : true}
+      };
+      return null;
+    }
+    }
+
+Then, we can pass parameters to the function as following
+
+rating: ['', this.validatorWithParams(1, 10)]

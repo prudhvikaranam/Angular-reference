@@ -1,0 +1,19 @@
+If we do not want the user move away from any path, or do something before the user move away, we can use candeactivate service.
+
+Note that, unlike, canactivate, candeactivate is a generic and we need to specify the return type.
+
+import {Injectable} from '@angular/core';
+import {CanDeactivate} from '@angular/router';
+
+@Injectable()
+export class DeActivateService implements CanDeactivate<boolean> {
+    isLoggedIn: boolean = true;
+    canDeactivate() {
+        return window.confirm('Go Way?');
+    }
+    
+}
+
+Then, add this service to app module and implement the route in the following way
+
+{path: 'user/:id', component: SingleComponent, canDeactivate: [DeActivateService] }

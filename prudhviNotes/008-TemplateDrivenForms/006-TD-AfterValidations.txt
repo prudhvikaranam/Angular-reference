@@ -1,0 +1,66 @@
+in template
+
+<div class="container">
+  <h1>Template Driven Form</h1>
+  <form (ngSubmit)="onSubmit(myForm)" #myForm="ngForm">
+    <div class="form-group">
+      <label for="name">First Name</label>
+      <input type="text" class="form-control" id="name" required ngModel name='firstName' minlength="3">
+      <label for="name">Last Name</label>
+      <input type="text" class="form-control" id="name" required ngModel name='lastName' minlength="3">
+      <label for="name">Email</label>
+      <input type="email" class="form-control" id="name" required ngModel name='email' email>
+      <label for="name">Password</label>
+      <input type="password" class="form-control" id="name" required ngModel name='password' minlength="6" #pw>
+      <label for="name">Confirm Password</label>
+      <input type="password" class="form-control" id="name" required ngModel name='confirmPassword' minlength="6" #cpw (keyup)='checkPasswordMatch(pw.value, cpw.value)'
+        #cpwTouched='ngModel'>
+      <span [hidden]='passwordMatch || cpwTouched.pristine ' style="color:red">Passwords Did Not Match</span>
+    </div>
+    <div class="form-group">
+      <label for="gender">Hobbies</label>
+      <div class="checkbox">
+        <label><input type="checkbox" ngModel name='technology'>Technology</label>
+      </div>
+      <div class="checkbox">
+        <label><input type="checkbox" ngModel name='entertainment'>Entertainment</label>
+      </div>
+      <div class="checkbox">
+        <label><input type="checkbox" ngModel name='sports'>Sports</label>
+      </div>
+    </div>
+    <br>
+    <div class="radio">
+      <label for="gender">Gender</label>
+      <label class="radio-inline"><input type="radio" ngModel name="gender" value="male" >Male</label>
+      <label class="radio-inline"><input type="radio" ngModel name="gender" value="female">Female</label>
+    </div>
+
+    <div class="form-group">
+      <label for="color">Select Color</label>
+      <select class="form-control"  ngModel="color" name="color">
+        <option value="red">Red</option>
+        <option value="blue">Blue</option>
+        <option value="green">Green</option>
+      </select>
+    </div>
+
+    <button type="submit" class="btn btn-success" [disabled]="myForm.invalid">Submit</button>
+  </form>
+</div>
+
+inside component
+
+  passwordMatch = false;
+
+  checkPasswordMatch(pw, cpw) {
+    if (pw === cpw) {
+      this.passwordMatch = true;
+    } else {
+      this.passwordMatch = false;
+    }
+  }
+  onSubmit(form) {
+    console.log(form.value);
+  
+  }

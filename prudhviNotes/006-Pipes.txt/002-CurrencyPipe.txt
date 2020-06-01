@@ -1,0 +1,22 @@
+Default currency is USD
+
+inside component
+
+price = 20;
+
+{{price | currency}}
+{{price | currency:'USD'}}
+{{price | currency:'USD':true}}
+
+the output will be
+
+USD20.00 USD20.00 $20.00 
+for
+
+{{price | currency:'INR'}}
+{{price | currency:'INR':true}}
+
+INR20.00 ₹20.00
+
+After |, currency indicates that this is currency pipe, second parameter 'INR' indicates it is Indian Rupee and third parameter true indicates that the application should render symbol. 
+Default is false.

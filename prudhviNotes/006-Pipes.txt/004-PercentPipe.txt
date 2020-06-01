@@ -1,0 +1,23 @@
+Percent pipe converts a number into percentage. That is multiplies the number with 100 and add % symbol at the end.
+
+inside the component:
+
+num1 = 3.768
+
+in the template
+
+{{num1 | percent}}
+
+the result will be
+
+376.8%
+
+The decimal points follows the same rules of number pipe
+
+in the template
+
+{{num1 | percent:'2.2-5'}}
+
+the result will be
+
+376.80%

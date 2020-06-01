@@ -1,0 +1,94 @@
+Some times we may have to generate some input fields dynamically. Like, we can let the users enter multiple emails ids or phone numbers.
+
+For that, we need to use FormArrays.
+
+To let the users enter multiple email ids,
+
+
+First, Create a form in the component file like below
+
+    this.myForm = this.fb.group({
+      name: '',
+      emails: this.fb.array([this.createEmail()]) 
+    });
+
+Here, note that, for emails, we are using FormArray and calling a method createEmail. So we need to have that method in our class
+
+  createEmail() {
+    return this.fb.control('');
+  }
+
+When the above method is called, then it will add one form control to the emails form array.
+
+To add additional email ids, we can create another method like below
+
+  addEmail() {    
+    // this.myForm.controls.emails.push(this.createEmail()); 
+    // Here Typescript may show an error message that push is not available, but it works.
+    // To make TS not show the error, use below code 
+    (this.myForm.controls.emails as FormArray).push(this.createEmail());
+    // or in the following way
+    // (<FormArray>this.myForm.controls.emails).push(this.createEmail());
+  }
+
+Then the entire component code will be
+
+import { Component } from '@angular/core';
+import {FormGroup, FormBuilder, FormArray} from '@angular/forms';
+
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  myForm: FormGroup;
+  constructor(public fb: FormBuilder) {
+    this.myForm = this.fb.group({
+      name: '',
+      emails: this.fb.array([this.createEmail()]) 
+    });
+  }
+
+  createEmail() {
+    return this.fb.control('');
+  }
+
+  addEmail() {
+    // let emails = <FormArray> this.myForm.controls.emails;
+    // emails.push(this.createEmail());
+    this.myForm.controls.emails.push(this.createEmail());
+  }
+
+  getForm() {
+    console.log(this.myForm);
+  }
+}
+
+
+Now, we can associate this form, to our template
+
+<form [formGroup]='myForm'>
+  <div class="form-group">
+    <label>Name</label>
+    <input type="text" class="form-control" placeholder="Name" formControlName='name'>
+  </div>
+
+
+  <div class="form-group" formArrayName='emails'>
+    <div *ngFor='let email of myForm.controls.emails.controls ; let i = index; '>
+      
+        <label for="exampleInputEmail1">Email address</label>
+        <input type="email" class="form-control" placeholder="Enter email" [formControlName]='i'>
+      
+    </div>
+  </div>
+  <button (click)='addEmail()' >Add Email</button>
+
+
+  <button type="submit" class="btn btn-primary" (click)='getForm()'>Submit</button>
+</form>
+
+
+Above, note that the formControlName inside the formArrayName div block is within square braces. 

@@ -1,0 +1,29 @@
+One advantage of using reactive forms is, we can set, clear validators dynamically.
+
+inside component
+
+this.myForm = this.fb.group({
+        firstName: ['John', Validators.required] ,
+        lastName: ['Doe', [Validators.required, Validators.minLength(3)] ],
+        email: ['', [Validators.required, Validators.pattern("[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z0-9.-]")] ]
+      })
+
+Here, initially email control is required and should have a patter, we can modify this dynamically
+
+inside template
+
+<button (click)='setClearValidators()' >Clear Email Pattern</button>
+
+then in the component
+
+setClearValidators() {
+      this.myForm.controls.email.clearValidators();
+      this.myForm.controls.email.setValidators(Validators.required);
+      this.myForm.controls.email.updateValueAndValidity();
+    }
+
+Here, with clearValidators we are clearing all email validations.
+
+Then with setValidators we are setting only required validation.
+
+then with updateValueAndValidity we are updating email value and its validity.

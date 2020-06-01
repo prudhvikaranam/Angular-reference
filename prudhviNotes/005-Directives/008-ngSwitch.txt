@@ -1,0 +1,29 @@
+
+
+in the html file...
+
+<div [ngSwitch]='switchValue'>
+    <div *ngSwitchCase='1' > Show One </div>
+    <div *ngSwitchCase='2' > Show Two </div>
+    <div *ngSwitchCase='3' > Show Three </div>
+</div>
+
+<button (click)='switchToOne()' >show one</button>
+<button (click)='switchToTwo()' >show two</button>
+<button (click)='switchToThree()' >show three</button>
+
+inside component
+
+switchValue = 1;
+
+  switchToOne() {
+    this.switchValue = 1;
+  }
+
+  switchToTwo() {
+    this.switchValue = 2;
+  }
+
+  switchToThree() {
+    this.switchValue = 3;
+  }

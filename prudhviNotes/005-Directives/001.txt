@@ -1,0 +1,34 @@
+﻿A directive is responsible for modifying template.
+
+There are three types are directives in Angular.
+
+Attribute Directives,Structural Directives and Components. 
+
+Components are internally directives with a template.
+
+Attribute directives changes the appearance or behaviour of an element or another directive.
+
+Structural directives—change the DOM layout by adding and removing DOM elements.
+
+
+
+Attribute
+
+used for adding classes and styles
+
+ngClass
+ngStyle
+
+
+structural
+
+these will not work if browserModule is not available in ts file
+
+*ngIf
+*ngFor
+*ngSwitch
+
+
+
+lifecycle Hooks
+

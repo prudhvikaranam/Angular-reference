@@ -1,0 +1,5 @@
+We can place one component inside another component.
+
+If we put Header Component inside App Component, App Component will become the parent component and Header Component its child component.
+
+Apart from that, there will be no link between the components. We cannot access Header Component properties in App Component and vice versa.

@@ -1,0 +1,3 @@
+Pipes takes some value and transforms/formats that into another value.
+
+Angular comes with several built in pipes.

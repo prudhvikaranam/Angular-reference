@@ -1,0 +1,12 @@
+Parent component can access properties and methods of child component by using ViewChild.
+
+To use ViewChild, we need to first import the child component in Parent component and assign it to a parent component property with ViewChild decorator.
+
+@ViewChild(ChildComponent) parentProperty;
+
+then inside parent component we can access all properties and methods of child component using parentProperty.
+
+parentProperty.childProperty;
+parentProperty.childMethod();
+
+Note that the ViewChild works only when we add child component selector inside parent component html. 

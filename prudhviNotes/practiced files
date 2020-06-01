@@ -1,0 +1,128 @@
+//  user1 = {
+  //   id : 1,
+  //   name : 'john',
+  //   imageSrc  : ('https://www.drmgrdu.ac.in/images/faculty/320/111245dummy.jpg ')
+  // };
+  // user2 = {
+  //   id : 2,
+  //   name : 'Doe'
+  // };
+
+  //  user3 = {
+  //   id : 3,
+  //   name : 'Jane',
+  //   imageSrc  : ('https://www.drmgrdu.ac.in/images/faculty/320/111245dummy.jpg ')
+  // };
+  // user4 = {
+  //   id : 4,
+  //   name : 'Smith'
+  // };
+
+
+  /*app.com.ts*/
+
+    // isDisabled = true;
+  // clickEvent() {
+  //   this.isDisabled = !this.isDisabled;
+  // }
+  // copyEvent() {
+  //   alert('you re trying to copy the text');
+  // }
+  // getHeading(val) {
+  //   alert(val);
+  // }
+  // getName(value) {
+  //   alert(value);
+  // }
+  // username = 'Prudhvi Karanam';
+  // receiveValue(value) {
+  //   alert(value);
+  // }
+
+  html
+
+  <button [disabled] = 'isDisabled'>Click</button>
+
+<br>
+
+<button (click) = "clickEvent()">Click Event</button>
+
+<p (copy) = "copyEvent()">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum, voluptates harum soluta, voluptatem ratione veniam ipsa quas cupiditate nostrum quibusdam dolorem consequuntur incidunt expedita illo dolorum molestias maxime et nisi.</p>
+
+<button (click) = 'getHeading(head.innerText)'>Get heading</button>
+
+<br>
+
+Name : <input type="text" #name>
+<button (click) ='getName(name.value)'>getname</button>
+
+<!-- <h2 #head>hello word  </h2>
+{{title}}
+{{userName}}
+<br>
+
+
+
+ <app-child (loginEvent) = 'receiveValue($event)'>
+  <h3>Some heading</h3>
+  <p>Some div</p>
+
+  <div class="set1">First Div</div>
+
+  <div set2>Second Div</div>
+
+</app-child>
+
+
+<!-- <app-newchild [uname] = 'username'></app-newchild>
+<br> -->
+<!-- Parent Component
+<div class="user"><img [src]="imagesrc">{{user1.name}} has an id of {{user1.id}} </div>
+
+<br>
+<div class="user">{{user2.name}} has an id of {{user2.id}} </div> -->
+
+<!-- 
+<app-newchild [userEnvelope] = "user3"></app-newchild>
+ --> 
+
+
+<!-- <div *ngIf='isTrue else ElsePart'>
+  Show if true
+</div> -->
+
+<div *ngIf= '!isTrue'>
+  Show if true
+</div>
+<!-- 
+<ng-template #ElsePart>
+  Show if False
+</ng-template> -->
+
+<div *ngFor = 'let u of users; let i=index;'>
+  {{u.id}} --Name {{u.name}} -- Index:{{i}}
+
+</div>
+
+
+  @ViewChild(ChildComponent) parentProperty;
+
+  title = 'my first angular app';
+
+  isTrue = false;
+
+  users = [
+    {id: 1, name: 'john'},
+    {id: 2, name: 'jane'},
+    {id: 3, name: 'jack'},
+  ];
+
+
+
+  Child Component
+<div class="childuser">
+{{userEnvelope.name}} has an id of {{userEnvelope.id}}
+</div>
+
+  @Input() uname;
+  @Input() userEnvelope;

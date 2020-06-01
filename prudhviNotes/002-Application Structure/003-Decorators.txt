@@ -1,0 +1,9 @@
+A decorator is a special type of typescript function which gets executed when we create any class.
+
+For our Angular application, a decorator tells Angular, what type of role a class on which we attached a decorator, is going to play inside the application.
+
+If we attach @ngModule decorator to any class, Angular treats that class as an Angular module and expects some meta data from the decorator, which we need to provide.
+
+Similarly when we attach @Component decorator to any class, Angular treats it as a Component and again expects some meta data through the decorator.
+
+In other words, whenever we create a class in our application, we also assign a role to that class.

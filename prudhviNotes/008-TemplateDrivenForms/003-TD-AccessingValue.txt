@@ -1,0 +1,19 @@
+When we submit a template driven form, the form input values can be accessed from the value property of the form.
+
+Example:
+
+Inside template
+
+<form (ngSubmit)="onSubmit(myForm)" #myForm="ngForm">
+    <input type="text" ngModel name='username'>
+    <input type="text" ngModel name='email'>
+    <button type="submit">Submit</button>
+</form>
+
+in the component
+
+onSubmit(form) {
+    console.log(form.value);
+    console.log(form.value.username);
+    console.log(form.value.email);
+}

@@ -1,0 +1,6 @@
+To pass some values from the view to the component, we can create local variables with # syntax.
+
+<h1 #h1value>My Heading</h1>
+
+When we create such local variables, they reference to the entire element, and not just the value inside the element.
+so based on the type of element, we need to access their value. 

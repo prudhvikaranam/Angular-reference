@@ -1,0 +1,13 @@
+Angular provides routes as an external module and we need to import it and add it in dependencies to use it in an application.
+
+import {RouterModule} from '@angular/router';
+
+Then add it to imports array...
+
+we can add RouterModule in two ways, one for root and one for child.
+
+We should add for root to the root module of an application, and for child for any feature modules.
+
+RouterModule.forRoot([])
+
+Inside the array, we specify the route configurations.

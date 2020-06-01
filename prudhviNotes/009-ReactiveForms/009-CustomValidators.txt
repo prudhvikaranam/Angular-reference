@@ -1,0 +1,29 @@
+Apart from Angular default validators, if we want to apply a different type of validation to form controls, we can create our own validators.
+
+A custom validator is typically a function, we want to execute, and validate the form control inside the function and return something.
+
+When we add a custom validator to a form control, Angular passes the particular form control element value and properties to the function, using which we can validate the element.
+
+Suppose we want to take rating from a user, a number between 1 and 5, then we can create a custom validator in the following way.
+
+Inside the component, at the time of defining form group
+
+rating: ['', this.ratingsRange]
+
+then add ratingsRange function as follows
+
+ratingsRange(rating: AbstractControl) {
+      if ( rating.value!= undefined && (isNaN(rating.value) || rating.value < 1 || rating.value > 5 )) {
+        return {range : true}
+      };
+      return null;
+    }
+
+In the above function, we are accessing the element, getting its value inside rating, then checking that rating is not undefined and is number and is not less than 1 or greater than 5.
+
+If any of our required criteria is matched, we are returning an object with {range: true}, that is we are telling that range is invalid. Else we are returning null, which says that the element is valid.
+
+Then we have to add range inside the template, to the appropriate element.
+
+ Rating: <input type="text" formControlName='rating' range>
+

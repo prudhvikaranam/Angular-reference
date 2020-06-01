@@ -1,0 +1,50 @@
+Sometimes we may want to pass few sets of html code, but in the child component, display each set at different place. We can do it by multi content projection.
+
+Way 1:
+
+inside Parent html
+
+<child-app>
+  <div class="set1" >First set of html content</div>
+  <div class="set2" >Second set of html content</div>
+  <div class="set3" >Third set of html content</div>
+  <div class="set4" >Fourth set of html content</div>
+</child-app>
+
+in child component html
+...
+<ng-content select='.set1' ></ng-content>
+...
+<ng-content select='.set2' ></ng-content>
+...
+<ng-content select='.set3' ></ng-content>
+...
+<ng-content select='.set4' ></ng-content>
+...
+
+When angular sees an ng-content element with select attribute with value set1, it looks inside its parent component for a part with class name set1, then strips it from the remaining html content,
+and projects inside the relevant ng-content area.
+
+While we can achieve content projection in the above method, Sometimes we may clash with css properties. So we can also achieve content projection in the following Way
+
+Way 2:
+
+<child-app>
+  <div set1>First set of html content</div>
+  <div set2>Second set of html content</div>
+  <div set3>Third set of html content</div>
+  <div set4>Fourth set of html content</div>
+  
+</child-app>
+
+in child component html
+
+...
+<ng-content select='[set1]' ></ng-content>
+...
+<ng-content select='[set2]' ></ng-content>
+...
+<ng-content select='[set3]' ></ng-content>
+...
+<ng-content select='[set4]' ></ng-content>
+...

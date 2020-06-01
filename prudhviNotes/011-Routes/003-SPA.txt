@@ -1,0 +1,19 @@
+We can see the advantage of using routerLink instead of href property of anchor tag.
+
+We can have a traditional menu with normal hrefs and other one with routerlinks like the following.
+
+<h4>Traditional Menu</h4>
+<a href="">Home</a>
+<a href="user">User</a>
+<a href="anything">404</a>
+<br>
+
+<h4>Angular Way</h4>
+<a routerLink="">Home</a>
+<a routerLink="user">User</a>
+<a routerLink="anything">404</a>
+<br>
+
+with all routes configured properly,
+
+whe we click on any anchor of traditional menu, we can see that entire page laods, where as when we click on any routerLink menu, the entire page do not load, but it loads only the required part.

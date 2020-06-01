@@ -1,0 +1,40 @@
+Date pipe takes input in either as a number (milliseconds since UTC epoch), or an ISO string (eg: Sun Jan 01 2017 09:44:12 GMT+0530)
+
+
+inside component
+
+cTime = Date.now()
+
+in template:
+
+{{cTime}}<br>
+{{cTime| date}} <br>
+{{cTime| date:'short'}} <br>
+{{cTime| date:'medium'}} <br>
+
+the output should be similar to depending on the time of execution of the application.
+
+1494251513046
+May 8, 2017 // default without any params
+5/8/2017, 7:21 PM // with short as param
+May 8, 2017, 7:21:53 PM // with medium as param
+
+other acceptable params are
+
+shortDate
+mediumDate
+longDate
+fullDate
+shortTime
+mediumTime
+
+For custom date format, we need to provide info as yyddMM type format
+
+eg:
+
+{{cTime| date:'dd-MMM-yy'}} 
+
+the result will be
+
+08-May-17 
+

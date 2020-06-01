@@ -1,0 +1,9 @@
+When we use 
+
+encapsulation: ViewEncapsulation.Native
+
+All styles defined globally will not be available in the component. Only the styles that are defined in this component will get applied to it.
+
+If this component further have other components in its html, the global styles will not be available to its child components also. But if you define any styles in this component, they will be available to its children.
+
+The styles defined in the component will not go propagate to the global styles.

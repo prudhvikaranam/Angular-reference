@@ -1,0 +1,25 @@
+In declarations array, we have to enter all the components that are used inside the application.
+
+In imports array, we have to enter all external modules, our application needs. 
+
+In providers array, we need to enter all the services that our application need.
+
+Then Angular takes all the provided information, keep it ready and bootstraps root component, in our case app component.
+
+Example:
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    HeaderComponent,
+    SidebarComponent
+  ],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    HttpModule
+  ],
+  providers: [UserService],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }

@@ -1,0 +1,23 @@
+TypeScript Modules...
+
+We can export any function or class or an interface from any ts file.
+
+The exported functions or classes or interfaces can be used in other modules by importing them.
+
+Eg:
+
+in exporting ts file export.example.ts
+
+export class MyClass {}
+
+to import the class in other ts file
+
+import { MyClass } from 'export.example';
+
+These modules needs to be processed to get js code by using commonjs or system.js or any other.
+
+Then we get javascript code, but we cannot use that code inside any html document using script tag.
+
+We need to use any module loader.
+
+The default loader for Angular is Webpack.

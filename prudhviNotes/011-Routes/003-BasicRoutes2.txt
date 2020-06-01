@@ -1,0 +1,12 @@
+Similar to the way we added routes to home and 404 not found pages, we can add routes to any other pages also, and we can link to them any clickable html element,
+such as a hyper link, image or a button.
+
+Example:
+
+<a  routerLink=""> Home </a>
+<a  [routerLink]="['/about']"> About Us </a>
+
+We can router link in one of the above method, and similarly we can add the links to buttons or images too 
+
+<button routerLink="">Home</button>
+<button [routerLink]="['/about']">About Us</button>

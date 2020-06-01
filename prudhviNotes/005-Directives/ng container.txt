@@ -1,0 +1,28 @@
+If we want to add two structural directives to one html element in the following way
+
+<div *ngIf='true' *ngFor='let user of users' >
+  {{user.id}}
+</div>
+
+we get the following error.
+
+Can't have multiple template bindings on one element.
+
+To solve this issue, we need to add one more wrapper element
+
+<div *ngIf='true'>
+  <div *ngFor='let user of users' >
+    {{user.id}}
+  </div>
+</div>
+
+
+While the above way solve our issue, it will add another div element to the DOM.
+
+If we want to avoid this, we can use ng-container, which makes the code
+
+<ng-container *ngIf='true'>
+  <div *ngFor='let user of users' >
+    {{user.id}}
+  </div>
+</ng-container>

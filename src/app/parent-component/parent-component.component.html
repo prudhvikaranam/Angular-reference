@@ -1,0 +1,46 @@
+<div [ngStyle] = "{'background' : 'grey'}">
+<h1>Parent component</h1>
+<h2>{{outputMethod}}</h2>
+<input type="text" [(ngModel)] = 'inputValue' #viewChild> 
+<p appCustom>Custom Directive</p>
+
+<!-- <p>Using *ngTemplateOutlet first time</p>
+
+<ng-container *ngTemplateOutlet='template' ></ng-container>
+
+<hr>
+
+<p>Using *ngTemplateOutlet second time</p>
+
+<ng-container *ngTemplateOutlet='template' ></ng-container>
+
+
+<ng-template #template >
+  <h2>Some content inside the template</h2>
+  <div>one div tag</div>  
+</ng-template> -->
+
+<div *ngTemplateOutlet='template; context:user3' ></div>
+<br>
+<div *ngTemplateOutlet='template; context:user2' ></div>
+
+
+<ng-template #template let-idddd='idd' >
+  user id: {{idddd}}
+</ng-template>
+
+
+<!-- Child component -->
+
+<hr>
+<div [ngClass] = 'childClassProperty'>
+  <app-child-component [propertyFromChild] = 'propertyFromParent' 
+                        (notify) = 'parentMethod($event)'
+                        [propertyforInput] = 'inputValue'
+                        [buttonName] = 'childButtonName'
+                        >
+                        This is a new {{propertyFromParent}}
+  </app-child-component>
+</div>
+</div>
+

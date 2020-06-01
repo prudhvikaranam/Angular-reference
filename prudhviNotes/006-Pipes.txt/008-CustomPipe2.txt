@@ -1,0 +1,60 @@
+Sometimes just transforming one value to another may not be sufficient. For example, if we have a business listings web page and want to sort the listing based on the
+text entered by the user. Then we may have to pass all listings to sort and also an additional parameter which is any string entered by the user.
+
+We can sort by creating a pipe for such requirements.
+
+Pipe TS file
+
+import {Pipe, PipeTransform} from '@angular/core';
+
+@Pipe({
+    name: 'Sort'
+})
+export class SortingPipe implements PipeTransform {
+    transform(value, sortBy: string) {
+        sortBy = sortBy ? sortBy.toLowerCase() : null;
+
+        return sortBy ? value.filter ((listing) => {
+           return listing.title.toLocaleLowerCase().indexOf(sortBy) !== -1
+        }) : value;
+    }
+}
+
+In the above code, along with the first parameter to transform method, we are also passing another string, which can be a string entered by the user. Inside the method, we are sorting using
+JS and returning sorted array.
+
+In the component
+
+  listings = [
+    {
+      id: 1,
+      title: 'IT Solutions'
+    },
+    {
+      id: 2,
+      title: 'Tech Systems'
+    },
+    {
+      id: 3,
+      title: 'App Makers'
+    },
+    {
+      id: 4,
+      title: 'Software Solutions'
+    },
+    {
+      id: 5,
+      title: 'Web Solutions'
+    }
+  ];
+
+  sortBy = '';
+
+  in the template
+
+  Sort By: <input type="text" [(ngModel)]='sortBy' >
+
+<div *ngFor= "let listing of listings | Sort:sortBy " >
+  Listing ID: {{listing.id}} Title {{listing.title}}
+</div>
+

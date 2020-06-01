@@ -1,0 +1,10 @@
+A child component can receive some value from its parent. To do so we need to do
+
+inside child component, decorate a property which needs to receive a value from parent with Input() 
+
+@Input() propertyName;
+
+Then in parent components html, we need to pass the value through child component selector
+
+<child-app [propertyName]='valueFromParent'></child-app>
+

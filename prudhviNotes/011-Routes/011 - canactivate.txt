@@ -1,0 +1,34 @@
+We can restrict users from navigating to certain sections of the application by using route guards based on a condition.
+
+Create a service with the following code
+
+import {Injectable} from '@angular/core';
+import {CanActivate} from '@angular/router';
+
+@Injectable()
+export class ActivateService implements CanActivate {
+    isLoggedIn: boolean = true;
+    canActivate() {
+        return this.isLoggedIn;
+    }
+}
+
+Eg 2:
+
+import {Injectable} from '@angular/core';
+import {CanActivate} from '@angular/router';
+
+@Injectable()
+export class ActivateService implements CanActivate {
+    isLoggedIn: boolean = true;
+    canActivate() {
+        return window.confirm('Are you sure?');
+    }
+}
+
+Add this service to app module and then add it to the routes like below
+
+{path: 'user', component: UserComponent, canActivate: [ActivateService]}
+
+
+Now, based on the value we return from canActivate method inside the service, the user will be able to either navigate to that user path or not.

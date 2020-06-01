@@ -1,0 +1,25 @@
+Template Driven forms are easy to implement.
+
+To make any form in an web page controlled by Angular, first add a local reference variable to the form element and give it the value ngForm.
+
+<form #myForm="ngForm">
+...
+</form>
+
+Then angular takes control over the form, creates a form model with several properties to access the values from the form and to perform several validations.
+
+To make any input field inside the form attached to the form model created by Angular, add ngModel and give the element a name.
+
+<input type="text" ngModel name='username'>
+
+To establish a two way binding between an input element and a component property, add ngModel inside [()] and assign it to the components property.
+
+<input type="text" [(ngModel)]='propertyName' name='username'>
+
+To pass the form details to component add (ngSubmit) to the form element and associate with a method inside the component.
+
+<form (ngSubmit)="onSubmit(myForm)" #myForm="ngForm">
+...
+</form>
+
+Then, when the user clicks on the submit button, the form details will be sent to the onSubmit method as an object.

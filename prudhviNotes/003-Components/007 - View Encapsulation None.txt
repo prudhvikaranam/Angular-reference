@@ -1,0 +1,7 @@
+
+
+With this option, the styles which are defined globally gets applicable inside the component and its children.
+
+If we define any styles inside the component, the styles further gets applied to its children and also becomes available globally.
+
+That is, from there onwards, all elements gets the component styles.

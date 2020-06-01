@@ -1,0 +1,27 @@
+We can group a certain section of form controls into a separate form group inside main form group.
+
+Inside component, inside main form group definition
+
+address: this.fb.group({
+          street: '',
+          city: '',
+          pin: ''
+        })
+
+If we want to add custom validators to form group, we need to add in the following way
+
+address: this.fb.group({
+          street: '',
+          city: '',
+          pin: ''
+        }, {Validator: this.addressValidator} )
+
+Then inside the template, we need add a section, with the form group name, then the input elements inside that section as form controls.
+
+        <div formGroupName='address' >
+            Street: <input type="text" formControlName='street'><br>
+            City: <input type="text" formControlName='city'><br>
+            Pin: <input type="text" formControlName='pin'><br>
+        </div>
+
+

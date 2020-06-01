@@ -1,0 +1,34 @@
+We can have range html input form element to take an input from a user between two values.
+
+By default the minimum value will be 0 and the maximum will be 100.
+
+<div class="form-group">
+    <label for="formControlRange">Example Range input</label>
+    <input type="range" class="form-control-range" ngModel name="range" >
+</div>
+
+With the above code, user will not be able to see, which value he selected. To let users see, 
+we can create a template variable and show value
+
+  <div class="form-group">
+    <label for="formControlRange">Example Range input</label>
+    <input type="range" class="form-control-range" ngModel #range name="range" >
+  </div>
+  {{range.value}}
+
+
+To mention a custom range, we can use, min and max properties in the following way
+
+<div class="form-group">
+    <label for="formControlRange">Example Range input</label>
+    <input type="range" class="form-control-range" min="-10" max="10" ngModel #range name="range" >
+  </div>
+  {{range.value}}
+
+By default the value will be incremented or decremented by 1. To change it, we can use step property
+
+  <div class="form-group">
+    <label for="formControlRange">Example Range input</label>
+    <input type="range" class="form-control-range" min="-10" max="10"  step="0.1" ngModel #range name="range" >
+  </div>
+  {{range.value}}

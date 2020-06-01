@@ -1,0 +1,22 @@
+Another way to send data from child component to parent component is by emitting data through an event emitter and using @Output syntax.
+
+inside child component, create a property that emits some data.
+
+@Output() messageToParent = new EventEmitter();
+
+Then create a function, which emits data when triggered
+
+sendMessage() {
+        this.messageToParent.emit('Message to Parent');
+}
+
+In Parent component html, respond to this event, and send value through a special parameter $event
+
+<child2-app (messageToParent)='messageFromChild($event)' ></child2-app>
+
+
+Inside parent component, receive the information
+
+messageFromChild(message) {
+        console.log("Message from Child" + message)
+}

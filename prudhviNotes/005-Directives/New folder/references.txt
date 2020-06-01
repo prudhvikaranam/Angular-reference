@@ -1,0 +1,5 @@
+ElementRef - Gives reference to an html element.
+
+TemplateRef - contains what's inside your <template> or <ng-template> tag
+
+ViewContainerRef - holds the template's view and will let you to embed what's inside the template into the view itself.

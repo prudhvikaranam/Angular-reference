@@ -1,0 +1,17 @@
+If we have a check box like below
+
+<div class="form-group form-check">
+    <input type="checkbox" class="form-check-input" ngModel name="check" >
+    <label class="form-check-label"   >Check me out</label>
+  </div>
+
+  Then, when the user submit the form, without checking/touching this checkbox, then we get checkbox value as "".
+
+  Inorder to get, true or false, user must check then uncheck the button.
+
+We cannot use checked html property to make it check by default. Neither [checked] works.
+
+To make a checkbox checked by default, we need to use either 
+[(ngModel)]='true' / [(ngModel)]='property' or [ngModel]='true'/[ngModel]='property'. 
+
+If we want to get either true or false irrespective of user touching the checkbox make [(ngModel)]='false'/ [ngModel]='false'

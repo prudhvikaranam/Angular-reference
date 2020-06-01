@@ -1,0 +1,22 @@
+<div class="main-container" id="main-container">
+    <div class="container" id="container">
+      <h1 [ngStyle] = "{'color' : 'white'}">TechTycoons</h1>
+      <div class="login-form" id="login-form" [ngStyle] = "{'color' : 'white'}">
+        <h2>Login</h2>
+        <span>
+          User Name 
+          <input type="text">
+        </span>
+        <span>
+          Password
+          <input type="password">
+        </span>
+        <button class="btn btn-success" (click) = 'onLogin()'>Login</button>
+        <!-- <br>
+        <a class="btn btn-success" routerLink = 'home' (click) = 'onLogin()'>Home</a>
+        <a class="btn btn-success" routerLink = 'login' (click) = 'onLogin()'>Login</a> -->
+      </div>
+    </div>
+  </div>
+  
+  

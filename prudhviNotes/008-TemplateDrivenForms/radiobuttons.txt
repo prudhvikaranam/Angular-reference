@@ -1,0 +1,28 @@
+To use radio buttons, we can have our form fields like below
+
+  <div class="form-check">
+    <input class="form-check-input" type="radio"  ngModel name="radio"  value="option1" checked>
+    <label class="form-check-label" for="exampleRadios1">
+      Option 1
+    </label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="radio"  ngModel name="radio"  value="option2">
+    <label class="form-check-label" for="exampleRadios2">
+      Option 2
+    </label>
+  </div>
+
+  <div class="form-check">
+    <input class="form-check-input" type="radio"  ngModel name="radio"  value="option3">
+    <label class="form-check-label" for="exampleRadios3">
+      Option 3
+    </label>
+  </div>
+
+Note in the above fields that name value for all input fields is same and we have given a different value to each input field.
+
+We can also use checked option to make a radio button default.
+
+If we want to allow user to select many radio buttons (usually we use check boxes for such functionality), we need to give different
+names to radio buttons.

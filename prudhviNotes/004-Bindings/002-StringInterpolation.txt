@@ -1,0 +1,28 @@
+In Angular to render the values from the component into html, we use {{}} syntax, which renders the property values from components into strings.
+
+Inside appcomponent class, we can give a value to a property
+
+title = "App works",
+
+to display the value of title property in html, we have to use
+
+{{title}}
+
+We use this syntax at several places in anguar, inside html elements and also as values to attributes like the following...
+
+<img src={{imgSrc}} alt="">
+and inside the class imgSrc="http://example.com/myimage.jpg";
+
+Like following...
+
+<p>Answer is {{20 + 30 }} </p> (in the view Answer is 50 will be displayed)
+
+can also perform certain calculations based on values from the component
+
+<p>Answer is {{20 + 30 - compValue() }} </p>
+
+here inside component class 
+
+compValue() {
+    return 25;
+  }

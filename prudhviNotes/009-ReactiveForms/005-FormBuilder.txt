@@ -1,0 +1,20 @@
+Another way to build forms using angular reactive forms is by using FormBuilder.
+
+To build a form using FormBuilder, we need to import it first inside the component and start using it
+
+import { FormGroup, FormBuilder } from '@angular/forms';
+
+Then inside the class
+
+    myForm: FormGroup;
+    
+    constructor(public fb: FormBuilder) {
+      this.myForm = this.fb.group({
+        firstName: '',
+        lastName: ''
+      })
+    }
+
+After this, we can use myForm exactly the same way, as we used when we created using FormGroup.
+
+setValue, patchValue are also applicable.

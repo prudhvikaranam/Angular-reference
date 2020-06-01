@@ -1,0 +1,5 @@
+Some times parent components may have to receive data from child at the time of initialization.
+
+Try emitting data through constructor. We do not receive.
+
+We need to use OnInit life cycle hook of the component to emit the data to parent.

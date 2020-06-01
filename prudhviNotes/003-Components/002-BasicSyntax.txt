@@ -1,0 +1,18 @@
+import {Component} from '@angular/core';
+
+@Component({
+    selector: 'app-component',
+    template: 'Hello World'
+})
+export class AppComponent {
+
+}
+
+
+Here, first we are importing Component decorator from angular core, so that we can use it to decorate a class and assign component role to it.
+
+A component must have a template, which contains the way we have to render our content to the user. Here, we just want to print out Hello World text in the view. So we assigned Hello World text to
+template.
+
+We also provided some additional information through decorator meta data, that is selector and given app-component value to it. So wherever Angular sees <app-component></app-component> in
+the application, it replaces it with the information, that we have provided through template.

@@ -1,0 +1,38 @@
+Suppose if we want to have a form in which we want have address as a separate group, 
+then we can create a sub form group inside our main form, like below
+
+    this.myForm = this.fb.group({
+      name: '',
+      email: '',
+      address: this.fb.group({
+        street: '',
+        city: ''
+      })
+    });
+
+Then, in our template, we can use it as
+
+<form [formGroup]='myForm' >
+  <div class="form-group">
+    <label>Name</label>
+    <input type="text" class="form-control" placeholder="Name" formControlName='name' >
+  </div>
+
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+    <input type="email" class="form-control" placeholder="Enter email" formControlName='email'>
+  </div>
+
+  <div formGroupName='address' >
+      <div class="form-group">
+        <label>Street</label>
+        <input type="text" class="form-control" placeholder="Street" formControlName='street'>
+      </div>
+      <div class="form-group">
+        <label>City</label>
+        <input type="text" class="form-control" placeholder="City" formControlName='city'>
+      </div>
+    </div>
+
+  <button type="submit" class="btn btn-primary" (click)='getForm()' >Submit</button>
+</form>

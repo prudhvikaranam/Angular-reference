@@ -1,0 +1,18 @@
+Though we can achieve most of the form related requirements through template driven forms, sometimes it may not be sufficient.
+
+Angular offers another forms module known as Reactive Forms Module.
+
+In template driven forms, angular creates form group and we access its properties and value in our component. In Reactive forms, we have to create everything, thus we can 
+have more control over the form.
+
+To use Reactive forms, first we need to import its corresponding module from @angular/forms and add it to the imports array of app root module.
+
+import { ReactiveFormsModule } from '@angular/forms';
+
+then add it to imports array
+
+imports: [
+    ...,
+    ReactiveFormsModule,
+    ...
+  ]

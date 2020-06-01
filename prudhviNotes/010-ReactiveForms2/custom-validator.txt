@@ -1,0 +1,59 @@
+Apart from using built in Angular validators, we can also create our own validators.
+
+Custom validators are basically functions which returns null if Valid or error message if Invalid.
+
+Eg:
+Suppose, we want to take a rating value from users and want the value to be in between 1 and 5.
+
+So, lets create our from
+
+  this.myForm = this.fb.group({
+      name: '',
+      rating: ['', this.validateRating],
+      emails: this.fb.array([this.createEmail()]) 
+    });
+
+In the above code, note that for rating we used this.validateRating method (without ()) which we need to implement.
+
+Write that method in the following way.
+
+ validateRating (rating: FormControl) {
+    if (rating.value < 1 || rating.value > 5) {
+      return {valid: false};
+    }
+    return null;
+  }
+
+The validator functions receives the value entered by the users, then we check that value and depend on our requirment
+we will either return null (if the user entered value is Valid) or an Error message.
+
+Note that the type of received method value (here rating) must be of type FormControl or AbstractControl.
+
+Now, use the following html in the template
+
+<form [formGroup]='myForm'>
+  <div class="form-group">
+    <label>Name</label>
+    <input type="text" class="form-control" placeholder="Name" formControlName='name'>
+  </div>
+
+  <div class="form-group">
+    <label>Rating</label>
+    <input type="text" class="form-control" placeholder="Rating" formControlName='rating'>
+  </div>
+
+  <div class="form-group" formArrayName='emails'>
+    <div *ngFor='let email of myForm.controls.emails.controls ; let i = index; '>
+      
+        <label for="exampleInputEmail1">Email address</label>
+        <input type="email" class="form-control" placeholder="Enter email" [formControlName]='i'>
+      
+    </div>
+  </div>
+  <button (click)='addEmail()' >Add Email</button>
+
+
+  <button type="submit" class="btn btn-primary" (click)='getForm()'>Submit</button>
+</form>
+
+Now, if the user enters anything below to 1 or above 5, then when we access the form, it will be Invalid and its validity will be false.

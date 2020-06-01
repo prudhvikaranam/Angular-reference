@@ -1,0 +1,80 @@
+Apart from Angular 2 built in directives, we can create our own directives. Just like we add @component decorator to components, we need to add @directive decorator to create custom directives.
+
+Syntax to create custom directive.
+
+@Directive({
+    selector: '[directive-name]'
+})
+export class MyDirective {
+
+}
+
+if you use
+
+selector: 'myDirective'
+
+then in html, you have to add
+
+<myDirective></myDirective>
+
+if you use
+
+selector: '[myDirective]'
+
+then in html, you can use it as
+
+<div myDirective> </div>
+
+To use the directive in the application, we need to import it in app.module.ts file and add it to the declarations array.
+
+When we put our directive on any element, we may need to change its appearance. So we need to have access to that element. We get that through ElementRef, which can be imported from angular core.
+We then have to inject ElementRef through constructor.
+
+
+import { Directive, ElementRef } from '@angular/core';
+
+@Directive({
+  selector: '[highlighter]'
+  
+})
+export class CustomDirective {
+  constructor(public el: ElementRef) {
+    this.el.nativeElement.style.backgroundColor = 'yellow';
+  }
+}
+
+When we inject ElementRef through constructor, we can access all properties of that element, on which we placed our directive.
+
+In the above example we are modifying the style.backgroundColor of that element and setting it to the value yellow.
+
+Just like accessing ElementRef, we can listen to the element and do any action when an event happens.
+
+
+https://www.w3schools.com/JSREF/dom_obj_all.asp
+
+What more we can do...
+
+this.el.nativeElement.innerText = 'Hello World';
+this.el.nativeElement.addEventListener('click', () => {
+            console.log('clicked on me');
+        });
+
+this.el.nativeElement.classList.add('newStyle');
+this.el.nativeElement.classList.remove('newStyle');
+
+this.el.nativeElement.addEventListener('click', () => {
+            console.log('clicked on me');
+            this.el.nativeElement.classList.add('newStyle');
+        });
+
+
+this.el.nativeElement.click();  // generates a click through code (without user action)
+
+this.el.nativeElement.addEventListener('mouseover', () => {
+            this.el.nativeElement.classList.add('newStyle');
+        } );
+
+this.el.nativeElement.addEventListener('mouseleave', () => {
+            this.el.nativeElement.classList.remove('newStyle');
+            this.el.nativeElement.click();
+        } );

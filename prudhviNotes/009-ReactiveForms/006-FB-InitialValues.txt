@@ -1,0 +1,26 @@
+By using form builder method to create form, we can set initial values for the form controls in three different ways.
+
+1.
+
+this.myForm = this.fb.group({
+        firstName: 'John',
+        lastName: 'Doe'
+      })
+
+2.
+
+this.myForm = this.fb.group({
+        firstName: {value: 'John', disabled: false} ,
+        lastName: {value: 'Doe', disabled: true}
+      })
+
+Note that, here, we must use both value and disabled and assign values to them, we cannot use only one.
+
+3.
+
+this.myForm = this.fb.group({
+        firstName: ['John'] ,
+        lastName: [{value: 'Doe', disabled: true}]
+      })
+
+Here, in this method, we only passed first value in the array. We can pass more values in this method for validations, which we will see later.

@@ -1,0 +1,32 @@
+import { Directive, ElementRef, HostListener } from '@angular/core';
+
+@Directive({
+  selector: '[highlighter]'
+  
+})
+export class CustomDirective {
+  constructor(public el: ElementRef) {    
+  }
+
+  @HostListener('click') clickFunction() {
+    console.log('Clicked on the element')
+  }
+
+  @HostListener('mouseenter') onMouseEnter() {
+    this.highlightColor('yellow');
+  }
+
+  @HostListener('mouseleave') onMouseLeave() {
+    this.highlightColor(null);
+  }
+
+  highlightColor(color) {
+    this.el.nativeElement.style.backgroundColor = color;
+  }
+}
+
+In the above code along with ElementRef, we imported HostListener from angular core.
+
+With HostListener, we can perform certain actions based on the events happening with the element.
+
+In the above example, we created three functions, one for click event, one for mouseenter and one for mouseleave. For each action, we performed something inside the function.

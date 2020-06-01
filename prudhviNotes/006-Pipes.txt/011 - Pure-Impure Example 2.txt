@@ -1,0 +1,63 @@
+Another example using our previous array sorting pipe
+
+Initially, the pipe and component properties will be same, 
+
+import {Pipe, PipeTransform} from '@angular/core';
+
+@Pipe({
+    name: 'Sort'
+})
+export class SortingPipe implements PipeTransform {
+    transform(value, sortBy: string) {
+        sortBy = sortBy ? sortBy.toLowerCase() : null;
+
+        return sortBy ? value.filter ((listing) => {
+           return listing.title.toLocaleLowerCase().indexOf(sortBy) !== -1
+        }) : value;
+    }
+}
+
+and inside the component
+
+  listings = [
+    {
+      id: 1,
+      title: 'IT Solutions'
+    },
+    {
+      id: 2,
+      title: 'Tech Systems'
+    },
+    {
+      id: 3,
+      title: 'App Makers'
+    },
+    {
+      id: 4,
+      title: 'Software Solutions'
+    },
+    {
+      id: 5,
+      title: 'Web Solutions'
+    }
+  ];
+
+  sortBy = '';
+
+lets do something in the template
+
+
+Modify: <input type="text" [(ngModel)]='listings[0].title' >
+<br>
+Sort By: <input type="text" [(ngModel)]='sortBy' >
+
+<div *ngFor= "let listing of listings | Sort:sortBy " >
+  Listing ID: {{listing.id}} Title {{listing.title}}
+</div>
+
+
+As per our example, when we enter it in the sort by input field, we get only the first value, that is IT Solutions.
+
+Now, if we modify the value from the modify input field and remove IT, still we get IT Solutions result from the pipe.
+
+If we make our pipe impure, then it will not happen.
