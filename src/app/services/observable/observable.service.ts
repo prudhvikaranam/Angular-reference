@@ -49,28 +49,46 @@ export class ObservableService {
     return hotObservable;
   }
 
-  subjectMethod() {
-    this.subject.next(`Message : Hey I'm a subject`);
+  subjectMethod(value) {
+    this.subject.next(value);
   }
 
-  subjectBehaviour() {
-    this.subject2.next(`Hello I'm a Subscriber`);
-    this.subject2.next(`Hello I'm a Subscriber 2`);
-    this.subject2.next(`Hello I'm a Subscriber 3`);
-    this.subject2.next(`Hello I'm a Subscriber 4`);
-    this.subject2.next(`Hello I'm a Subscriber 5`);
-    setTimeout(() => {
-      this.subject2.next(`Hello I'm a Subscriber 6`);
-    }, 2000);
-    return this.subject2.asObservable();
+  // subjectBehaviour() {
+  //   this.subject2.next(`Hello I'm a Subscriber`);
+  //   this.subject2.next(`Hello I'm a Subscriber 2`);
+  //   this.subject2.next(`Hello I'm a Subscriber 3`);
+  //   this.subject2.next(`Hello I'm a Subscriber 4`);
+  //   this.subject2.next(`Hello I'm a Subscriber 5`);
+  //   setTimeout(() => {
+  //     this.subject2.next(`Hello I'm a Subscriber 6`);
+  //   }, 2000);
+  //   return this.subject2.asObservable();
+  // }
+
+  // replaySubject() {
+  //   this.subject3.next("This is in Replay Subject 1");
+  //   this.subject3.next("This is in Replay Subject 2");
+  //   this.subject3.next("This is in Replay Subject 3");
+  //   this.subject3.next("This is in Replay Subject 4");
+  //   this.subject3.next("This is in Replay Subject 5");
+  //   return this.subject3.asObservable();
+  // }
+
+
+  // ---------------second set
+
+
+  sObservable(){
+    let sObservable = RX.Observable.create((observable) => {
+      observable.next('Hello Observer');
+      observable.next(`How are you? I'm Observable`);
+      setInterval(()=> {
+        observable.next(`I won't leave you until you unsubscribe me`);
+      },2000)
+    })
+    return sObservable
   }
 
-  replaySubject() {
-    this.subject3.next("This is in Replay Subject 1");
-    this.subject3.next("This is in Replay Subject 2");
-    this.subject3.next("This is in Replay Subject 3");
-    this.subject3.next("This is in Replay Subject 4");
-    this.subject3.next("This is in Replay Subject 5");
-    return this.subject3.asObservable();
-  }
+
+
 }

@@ -1,9 +1,10 @@
 import { Component, OnInit } from "@angular/core";
 import { ObservableService } from "src/app/services/observable/observable.service";
 import { Router } from "@angular/router";
-import { of } from "rxjs";
+import { of, Subscription } from "rxjs";
 
 import { map, filter } from "rxjs/operators";
+
 
 
 @Component({
@@ -12,20 +13,24 @@ import { map, filter } from "rxjs/operators";
   styleUrls: ["./rxjs-observables.component.css"],
 })
 export class RxjsObservablesComponent implements OnInit {
+  
+  subscription : Subscription;
+
+  currentValue : any = 0;
   constructor(private observableService: ObservableService,private router : Router) {}
 
   ngOnInit() {
-    let abc = this.observableService.newObservable().subscribe(
-      (data) => {
-        console.log(data);
-      },
-      (error) => {
-        console.log(`Error is ${error}`);
-      },
-      () => {
-        console.log("All events received");
-      }
-    );
+    // let abc = this.observableService.newObservable().subscribe(
+    //   (data) => {
+    //     console.log(data);
+    //   },
+    //   (error) => {
+    //     console.log(`Error is ${error}`);
+    //   },
+    //   () => {
+    //     console.log("All events received");
+    //   }
+    // );
 
     // setTimeout(() => {
     //   abc.unsubscribe();
@@ -71,9 +76,9 @@ export class RxjsObservablesComponent implements OnInit {
 
 
     // ---------------------------Subject
-    // this.observableService.subject$.subscribe((data) => {
-    //   console.log(`Component ngOnInit: ${data}`);
-    // })
+    this.observableService.subject$.subscribe((data) => {
+      console.log(`Component ngOnInit: ${data}`);
+    })
 
 
     // ---------------------------Behavior Subject
@@ -92,7 +97,31 @@ export class RxjsObservablesComponent implements OnInit {
 
     // this.operators();
 
+
+
+    // ---------------Second set
+
+    // this.subscription = this.observableService.sObservable().subscribe((data) => {
+    //   console.log(data);
+    // },(err) => {
+    //   console.log(err)
+    // },() => {
+    //   console.log('completed');
+    // })
+
+    // setTimeout((message) => {
+    //   this.subscription.unsubscribe();
+    //   if(this.subscription.closed){
+    //     console.log(`Hey Observable!You got unsubscribed, now please stop printing`);
+    //   }
+    // },5000,'hello')
   }
+
+
+  valueChange(value){
+    this.observableService.subjectMethod(value);
+  }
+  
 
   // observables(){
   //   this.observableService.subjectMethod();
