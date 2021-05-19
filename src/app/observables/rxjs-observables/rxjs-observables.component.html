@@ -2,8 +2,14 @@
   rxjs-observables works!
 </p>
 
+<button (click) = 'makeCall()'>Make Call</button>
+
+
+
 <button (click) = 'observables()'>Trigger Subject1</button>
 <div id="output" class="output"></div>
 
 
-<input (input) = 'valueChange($event.target.value)'>
+Test for Debounce using Subject method<input (input) = 'valueChange($event.target.value)'><br>
+
+Test for Debounce/Throttling/switch Map<input id="inputKey">

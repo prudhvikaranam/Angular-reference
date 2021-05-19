@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import * as RX from "rxjs";
+import { HttpClient } from "@angular/common/http";
 
 @Injectable({
   providedIn: "root",
@@ -13,8 +14,37 @@ export class ObservableService {
 
   private subject3 = new RX.ReplaySubject(4);
 
-  constructor() {
+  constructor(private http : HttpClient) {
     // console.log(RX);
+  }
+
+  dummyData = [
+    {
+      id: 1,
+      course: "Angular",
+    },
+    {
+      id: 2,
+      course: "React",
+    },
+    {
+      id: 3,
+      course: "Javascript",
+    },
+    {
+      id: 4,
+      course: "Redux",
+    },
+    {
+      id: 5,
+      course: "Node Js",
+    },
+  ];
+
+  getData(): any {
+    return this.http.get('https://jsonplaceholder.typicode.com/commentsss');
+    // return this.http.get(' http://localhost:3000/comments');
+
   }
 
   newObservable() {
@@ -74,21 +104,16 @@ export class ObservableService {
   //   return this.subject3.asObservable();
   // }
 
-
   // ---------------second set
 
-
-  sObservable(){
+  sObservable() {
     let sObservable = RX.Observable.create((observable) => {
-      observable.next('Hello Observer');
+      observable.next("Hello Observer");
       observable.next(`How are you? I'm Observable`);
-      setInterval(()=> {
+      setInterval(() => {
         observable.next(`I won't leave you until you unsubscribe me`);
-      },2000)
-    })
-    return sObservable
+      }, 2000);
+    });
+    return sObservable;
   }
-
-
-
 }
