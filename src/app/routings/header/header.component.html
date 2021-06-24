@@ -5,8 +5,7 @@
     </div>
     <ul class="nav navbar-nav">
       <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
-        <a
-          [routerLink]="[
+        <a [routerLink]="[
             '/Home',
             {
               outlets: {
@@ -14,9 +13,7 @@
                 'nrouter2' : ['router2']
               }
             }
-          ]"
-          >Home</a
-        >
+          ]">Home</a>
       </li>
       <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
         <a routerLink="Employees">Employees</a>

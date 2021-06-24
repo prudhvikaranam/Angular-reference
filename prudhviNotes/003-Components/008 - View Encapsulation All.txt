@@ -1,4 +1,4 @@
-										Global		To Child	 To Global
+				Global		To Child	 To Global
 
 Emulated           Yes	       	  No	           No
 
