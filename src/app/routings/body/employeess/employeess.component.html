@@ -12,7 +12,7 @@
 <a routerLink = 'Employees'>Reload Employees (will not work)</a> <!-- Throws an error  because it is a relative path and tries to append to the current url,  we wont get error in the header component because that component is in root level (top level), once we come down of the root level it becomes an relative path -->
 <br>
 <a routerLink = '/Employees'>Reload Employees</a> <!-- This is a absolute path which will append to the root path -->
-<!-- <br>
+<br>
 <button class="btn btn-default">
   <a  [routerLink] = "['Home','wrongPage']">Go to Home</a>
 </button>
@@ -26,5 +26,5 @@
 <br>
 <button class="btn btn-default">
   <a (click) = "onLoadPage()">Reload Page navigate</a>
-</button> -->
+</button>
 
